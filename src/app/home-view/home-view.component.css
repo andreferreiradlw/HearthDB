@@ -1,0 +1,96 @@
+/*Card List Child element*/
+.card-container {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background: url('../../assets/parchment-background.jpg');
+}
+/*Top Menu*/
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url('../../assets/wood_middle_repeat.png');
+  background-position: bottom;
+  background-repeat: repeat-x;
+  padding: 0.5rem 1rem;
+  z-index: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+/*Slide Menu*/
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.644);
+  color: #fff;
+  position: fixed;
+  left: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.side-menu ul {
+  font-size: 18px;
+  line-height: 3;
+  font-weight: 400;
+  padding-top: 50px;
+  list-style: none;
+}
+/*Burger Styles*/
+.bt-menu {
+  position: relative;
+  display: block;
+  width: 55px;
+  height: 55px;
+}
+.bt-menu:after, .bt-menu:before {
+  content: "";
+}
+.bt-menu span, .bt-menu::after, .bt-menu::before {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  border-top: 4px solid white;
+  transition: .2s;
+  border-radius: 7px;
+}
+.bt-menu::before {
+  top: 18px;
+}
+.bt-menu span {
+  top: 26px;
+}
+.bt-menu::after {
+  top: 34px;
+}
+.bt-menu.active::before, .bt-menu.active::after {
+  top: 25px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: .3s;
+}
+.bt-menu.active::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.bt-menu.active span {
+  opacity: 0;
+}
+.bt-menu.active::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
