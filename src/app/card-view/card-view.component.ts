@@ -11,15 +11,18 @@ export class CardViewComponent implements OnInit, OnChanges {
   @Input() menuState: any;
   // output event emitter when card clicked
   @Output() cardSelected = new EventEmitter();
-  // pagination strings
+  // default pagination strings
   page = 1;
-  // 5 initial items per page
   itemsPerPage = 20;
-  slicedCards: any;
   totalPages: number;
+  // cards strings
+  slicedCards: any;
   filteredCardsLength: number;
   // sorting options
   orderOptions = ['Cost', 'Name', 'Class', 'Type'];
+  // switches
+  viewSwitch = true; // gallery = true / table = false
+  formatSwitch = true; // wild = true / strandard = false
 
   constructor() { }
 

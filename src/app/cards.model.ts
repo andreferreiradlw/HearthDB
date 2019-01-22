@@ -27,4 +27,8 @@ export class Card {
   image() {
     return 'https://raw.githubusercontent.com/schmich/hearthstone-card-images/4.12.2/rel/' + this.dbfId + '.png';
   }
+
+  cardArt() {
+    return 'https://art.hearthstonejson.com/v1/512x/' + this.id + '.jpg';
+  }
 }
