@@ -148,4 +148,7 @@ export class HomeViewComponent implements OnInit {
         this.selectedManaCost
       );
   }
+  onCardSelected(cardDetails: any) {
+    console.log(cardDetails);
+  }
 }

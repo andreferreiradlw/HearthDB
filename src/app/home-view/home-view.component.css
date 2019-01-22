@@ -125,21 +125,21 @@ app-card-view {
 /* Larger desktop */
 @media (min-width: 1200px) {
   .side-menu {
-    width: 40vw;
+    width: 30vw;
     background: rgb(0, 0, 0);
   }
   .card-container-open {
     align-items: flex-end;
   }
   .card-container-open > app-card-view {
-    width: 60vw;
+    width: 70vw;
     padding: 0 2%;
   }
   .footer.footer-open {
     justify-content: flex-end;
   }
   .footer > p.footer-open {
-    width: 60%;
+    width: 70%;
   }
 }
 /* Large desktop */

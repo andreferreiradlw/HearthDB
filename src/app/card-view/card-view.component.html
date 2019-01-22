@@ -17,6 +17,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
+    <!--
     <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-12 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
       Current Page: {{ page }}
     </div>
@@ -29,10 +30,12 @@
     <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-12 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
       Filtercards length: {{filteredCardsLength}}
     </div>
+    -->
     <div
       class="card"
       *ngFor="let card of slicedCards"
-      [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-12 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      (click)="onShowCardDetails(card)"
+      [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-12 col-xl-3' : 'col-sm-6 col-md-3 col-xl-2'">
       <img class="card-image" src="{{ card.image() }}">
     </div>
   </div>

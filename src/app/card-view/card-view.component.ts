@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
-
-
+import { Component, OnInit, Input, OnChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-view',
@@ -11,6 +9,8 @@ export class CardViewComponent implements OnInit, OnChanges {
   // parent inputs
   @Input() filteredCards: any;
   @Input() menuState: any;
+  // output event emitter when card clicked
+  @Output() cardSelected = new EventEmitter();
   // pagination strings
   page = 1;
   // 5 initial items per page
@@ -23,8 +23,7 @@ export class CardViewComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     // detect filter changes
@@ -55,5 +54,9 @@ export class CardViewComponent implements OnInit, OnChanges {
     this.onPageChange(1);
     // this.onOrderChange()
   }
-
+  // on card clicked
+  onShowCardDetails(selectedCard: any) {
+    // console.log(selectedCard);
+    this.cardSelected.emit(selectedCard);
+  }
 }
