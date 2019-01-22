@@ -1,4 +1,30 @@
 .container {
-  width: 100%;
-  margin-top: 63px;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.open {
+  align-items: flex-end;
+}
+
+
+/* Larger desktop */
+@media (min-width: 1200px) {
+}
+/* Large desktop */
+@media (min-width: 980px) and (max-width: 1199px) {
+
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
 }

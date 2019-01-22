@@ -1,77 +1,73 @@
 <!--Side Menu with Slide-->
-
-  <div [@slideInOut]="menuState" class="side-menu">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-            <h2>Filter Cards</h2>
-        </div>
+<div [@slideInOut]="menuState" class="side-menu">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <h2>Filter Cards</h2>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Name -->
-          <input
-            id="nameFilter"
-            class="form-control"
-            type="text"
-            name="search"
-            [(ngModel)]="nameSearch"
-            (keyup)="onFilterChange($event)"
-            autocomplete="off"
-            placeholder="Filter by Name">
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Name -->
+        <input id="nameFilter" class="form-control" type="text" name="search" [(ngModel)]="nameSearch" (keyup)="onFilterChange($event)"
+          autocomplete="off" placeholder="Filter by Name">
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Type -->
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Type -->
+        <select id="typeFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedType">
+          <option value="">Choose a Type</option>
+          <option *ngFor="let type of typeOptions" [value]="type.value">{{type.label}}</option>
+        </select>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Class -->
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Class -->
+        <select id="classFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedClass">
+          <option value="">Choose a Class</option>
+          <option *ngFor="let class of classOptions" [value]="class.value">{{class.label}}</option>
+        </select>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Mana Cost -->
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Mana Cost -->
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Set -->
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Set -->
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Rarity -->
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Rarity -->
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <!--Format -->
-        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <!--Format -->
       </div>
     </div>
   </div>
+</div>
+
 <!--Header Bar-->
 <header class="main-header">
-  <!--
-  <div>
-      <button
-        (click)="toggleMenu()"
-        class="burger"
-        [ngClass]="(menuState === 'out') ? 'open' : ''"></button>
-  </div>
-  -->
-  <div (click)="toggleMenu()" [ngClass]="(menuState === 'out') ? 'active' : ''" class="bt-menu">
+  <!--Menu Button-->
+  <div (click)="toggleMenu()" [ngClass]="(menuState === 'open') ? 'active' : ''" class="bt-menu">
     <span></span>
   </div>
 </header>
 
-
 <!--Card List Component-->
-<div class="card-container">
-    <app-card-view [filteredCards]="filteredCards"></app-card-view>
+<div class="card-container" [ngClass]="(menuState === 'open') ? 'card-container-open' : ''">
+  <app-card-view [filteredCards]="filteredCards" [menuState]="menuState"></app-card-view>
+  <div class="footer" [ngClass]="(menuState === 'open') ? 'footer-open' : ''">
+    <p [ngClass]="(menuState === 'open') ? 'footer-open' : ''">This is my footer text</p>
+  </div>
 </div>
 <!--Maybe a footer, but probably not-->
 

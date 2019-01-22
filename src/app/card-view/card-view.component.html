@@ -1,4 +1,30 @@
 <div class="container">
+  <div class="row justify-content-start">
+    <div class="col-12 col-sm-auto">col switch</div>
+    <div class="col-12 col-sm-auto">col # pages</div>
+    <div class="col-12 col-sm-auto">col sorting</div>
+  </div>
+  <div class="row justify-content-center">
+    <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-6 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      One of three columns
+    </div>
+    <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-6 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      One of three columns
+    </div>
+    <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-6 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      One of three columns
+    </div>
+    <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-6 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      One of three columns
+    </div>
+    <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-6 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      One of three columns
+    </div>
+    <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-6 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
+      {{menuState}}
+    </div>
+  </div>
 </div>
+
 
 

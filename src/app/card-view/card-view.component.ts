@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 
 
 
@@ -10,15 +10,18 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 export class CardViewComponent implements OnInit, OnChanges {
 
   @Input() filteredCards: any;
+  @Input() menuState: any;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     // detect filter changes
-    console.log(this.filteredCards);
+    if( changes['filteredCards'] && changes['filteredCards'].previousValue != changes['filteredCards'].currentValue ) {
+      console.log(this.filteredCards);
+    }
   }
 
 }

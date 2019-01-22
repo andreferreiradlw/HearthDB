@@ -1,9 +1,32 @@
-/*Card List Child element*/
+/*Card List Child element with footer*/
 .card-container {
   margin: 0;
   width: 100vw;
   min-height: 100vh;
   background: url('../../assets/parchment-background.jpg');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+app-card-view {
+  flex-grow: 1;
+  transition: width 400ms ease-in-out;
+}
+/*footer styles*/
+.footer {
+  background: black;
+  width: 100%;
+  justify-self: flex-end;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+}
+.footer p {
+  margin: 0;
+  padding: 10px 25px;
+  width: 100%;
+  transition: width 400ms ease-in-out;
 }
 /*Top Menu*/
 .main-header {
@@ -93,4 +116,71 @@
 .bt-menu.active::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+
+/* Larger desktop */
+@media (min-width: 1200px) {
+  .side-menu {
+    width: 40vw;
+    background: rgb(0, 0, 0);
+  }
+  .card-container-open {
+    align-items: flex-end;
+  }
+  .card-container-open > app-card-view {
+    width: 60vw;
+  }
+  .footer.footer-open {
+    justify-content: flex-end;
+  }
+  .footer > p.footer-open {
+    width: 60%;
+  }
+}
+/* Large desktop */
+@media (min-width: 980px) and (max-width: 1199px) {
+  .side-menu {
+    width: 50vw;
+    background: rgb(0, 0, 0);
+  }
+  .card-container-open {
+    align-items: flex-end;
+  }
+  .card-container-open > app-card-view {
+    width: 50vw;
+  }
+  .footer.footer-open {
+    justify-content: flex-end;
+  }
+  .footer > p.footer-open {
+    width: 50%;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .side-menu {
+    width: 50vw;
+    background: rgb(0, 0, 0);
+  }
+  .card-container-open {
+    align-items: flex-end;
+  }
+  .card-container-open > app-card-view {
+    width: 50vw;
+
+  }
+  .footer.footer-open {
+    justify-content: flex-end;
+  }
+  .footer > p.footer-open {
+    width: 50%;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
 }
