@@ -131,6 +131,8 @@ export class HomeViewComponent implements OnInit {
       this.selectedClass = changeSelected.target.value;
     } else if (changeSelected.srcElement.id === 'setFilter'){
       this.selectedSet = changeSelected.target.value;
+    } else if (changeSelected.srcElement.id === 'rarityFilter'){
+      this.selectedRarity = changeSelected.target.value;
     }
     // filter using pipe
     this.filteredCards = this.searchFilter
@@ -139,7 +141,8 @@ export class HomeViewComponent implements OnInit {
         this.nameSearch,
         this.selectedClass,
         this.selectedType,
-        this.selectedSet
+        this.selectedSet,
+        this.selectedRarity
       );
   }
 }

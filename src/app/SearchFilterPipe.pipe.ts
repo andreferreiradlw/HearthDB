@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchFilterPipePipe implements PipeTransform {
 
-  transform(items: any, nameSearch: string, classSearch: string, typeSearch: string, setSearch: string): any {
+  transform(items: any, nameSearch: string, classSearch: string, typeSearch: string, setSearch: string, raritySearch: string): any {
     if (items && items.length){
       return items.filter(item =>{
         if (setSearch && item.set.toLowerCase().indexOf(setSearch.toLowerCase()) === -1){
@@ -18,6 +18,9 @@ export class SearchFilterPipePipe implements PipeTransform {
           return false;
         }
         if (classSearch && item.cardClass.toLowerCase().indexOf(classSearch.toLowerCase()) === -1){
+          return false;
+        }
+        if (raritySearch && item.rarity.toLowerCase().indexOf(raritySearch.toLowerCase()) === -1){
           return false;
         }
         return true;

@@ -40,6 +40,16 @@
   width: 100%;
   z-index: 2;
 }
+/*pagination*/
+.pagination {
+  margin: 3% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination > div {
+  padding: 15px 15px 0;
+}
 /* Larger desktop */
 @media (min-width: 1200px) {
 }

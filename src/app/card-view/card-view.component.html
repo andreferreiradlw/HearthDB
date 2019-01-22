@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row justify-content-start">
     <div class="col-12 col-sm-auto">col switch</div>
+    <div class="col-12 col-sm-auto">col sorting</div>
+    <div class="col-12 col-sm-auto">col format</div>
     <div class="col-12 col-sm-auto">
       <select
         *ngIf="filteredCardsLength > 20"
@@ -13,7 +15,6 @@
         <option value="50" selected="this.itemsPerPage == 50" *ngIf="filteredCardsLength > 35">50</option>
       </select>
     </div>
-    <div class="col-12 col-sm-auto">col sorting</div>
   </div>
   <div class="row justify-content-center">
     <div [ngClass]="(menuState === 'open') ? 'col-sm-6 col-md-12 col-xl-4' : 'col-sm-6 col-md-3 col-xl-2'">
@@ -35,7 +36,7 @@
       <img class="card-image" src="{{ card.image() }}">
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center pagination">
     <div class="col-auto">
       <ngb-pagination
         [maxSize]="4"
