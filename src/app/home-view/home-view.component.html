@@ -39,6 +39,10 @@
     <div class="row justify-content-center">
       <div class="col-8 text-center">
         <!--Set -->
+        <select id="setFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedSet">
+          <option value="">Choose a Set</option>
+          <option *ngFor="let set of setOptions" [value]="set.value">{{set.label}}</option>
+        </select>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -48,7 +52,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-8 text-center">
-        <!--Format -->
+        <!--Races -->
       </div>
     </div>
   </div>
@@ -59,6 +63,9 @@
   <!--Menu Button-->
   <div (click)="toggleMenu()" [ngClass]="(menuState === 'open') ? 'active' : ''" class="bt-menu">
     <span></span>
+  </div>
+  <div class="menu-logo">
+    <h4>HearthDB</h4>
   </div>
 </header>
 

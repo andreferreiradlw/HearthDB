@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeViewComponent } from '../app/home-view/home-view.component';
 import { SearchFilterPipePipe } from './SearchFilterPipe.pipe';
+import { OrderByPipePipe } from './orderByPipe.pipe';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
       RouterModule
    ],
    declarations: [
-      SearchFilterPipePipe
+      SearchFilterPipePipe,
+      OrderByPipePipe
    ]
 })
 export class AppRoutingModule { }

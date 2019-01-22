@@ -44,8 +44,12 @@ app-card-view {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+}
+.menu-logo h4 {
+  margin: 0;
+  color: white;
 }
 /*Slide Menu*/
 .side-menu {
@@ -129,6 +133,7 @@ app-card-view {
   }
   .card-container-open > app-card-view {
     width: 60vw;
+    padding: 0 2%;
   }
   .footer.footer-open {
     justify-content: flex-end;
@@ -148,6 +153,7 @@ app-card-view {
   }
   .card-container-open > app-card-view {
     width: 50vw;
+    padding: 0 2%;
   }
   .footer.footer-open {
     justify-content: flex-end;
@@ -167,7 +173,7 @@ app-card-view {
   }
   .card-container-open > app-card-view {
     width: 50vw;
-
+    padding: 0 2%;
   }
   .footer.footer-open {
     justify-content: flex-end;
