@@ -34,6 +34,10 @@
     <div class="row justify-content-center">
       <div class="col-8 text-center">
         <!--Mana Cost -->
+        <select id="manaCostFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedManaCost">
+          <option value="">Choose Mana Cost</option>
+          <option *ngFor="let manaCost of manaCostOptions" [value]="manaCost.value">{{manaCost.label}}</option>
+        </select>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -52,11 +56,6 @@
           <option value="">Choose Rarity</option>
           <option *ngFor="let rarity of rarityOptions" [value]="rarity.value">{{rarity.label}}</option>
         </select>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-8 text-center">
-        <!--Races -->
       </div>
     </div>
   </div>

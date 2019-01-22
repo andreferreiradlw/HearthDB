@@ -5,11 +5,28 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchFilterPipePipe implements PipeTransform {
 
-  transform(items: any, nameSearch: string, classSearch: string, typeSearch: string, setSearch: string, raritySearch: string): any {
+  transform(items: any,
+    nameSearch: string,
+    classSearch: string,
+    typeSearch: string,
+    setSearch: string,
+    raritySearch: string,
+    manaCostSearch: string): any {
     if (items && items.length){
       return items.filter(item =>{
         if (setSearch && item.set.toLowerCase().indexOf(setSearch.toLowerCase()) === -1){
           return false;
+        }
+        if (manaCostSearch){
+          if (Number(manaCostSearch) === 7) {
+            if (item.cost < 7) {
+              return false;
+            }
+          } else {
+            if (item.cost !== Number(manaCostSearch)) {
+              return false;
+            }
+          }
         }
         if (nameSearch && item.name.toLowerCase().indexOf(nameSearch.toLowerCase()) === -1){
           return false;
