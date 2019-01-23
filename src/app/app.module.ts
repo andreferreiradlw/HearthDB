@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeViewComponent } from './home-view/home-view.component';
 import { CardViewComponent } from './card-view/card-view.component';
+import { FilterMenuComponent } from './filter-menu/filter-menu.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeViewComponent,
-      CardViewComponent
+      CardViewComponent,
+      FilterMenuComponent
    ],
    imports: [
       BrowserModule,

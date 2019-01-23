@@ -7,7 +7,7 @@ export class OrderByPipePipe implements PipeTransform {
 
   transform(values: number[]|string[]|object[], key?: string, reverse?: boolean) {
     if (!Array.isArray(values) || values.length <= 0) {
-      //return null;
+      // return null;
       return values;
     }
     return this.sort(values, key, false);

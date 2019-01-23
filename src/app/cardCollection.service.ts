@@ -16,7 +16,7 @@ export class CardCollectionService {
     this.http.get<{cards: any}>(this.apiUrl)
       .subscribe(cardsData => {
         // convert object into array
-        const cardsArray = Object.keys(cardsData).map(i => cardsData[i])
+        const cardsArray = Object.keys(cardsData).map(i => cardsData[i]);
         const finalCards = [];
         cardsArray.forEach((entry) => {
           const card = new Card();

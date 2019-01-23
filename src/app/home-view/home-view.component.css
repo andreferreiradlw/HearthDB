@@ -68,13 +68,6 @@ app-card-view {
   z-index: 100;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-.side-menu ul {
-  font-size: 18px;
-  line-height: 3;
-  font-weight: 400;
-  padding-top: 50px;
-  list-style: none;
-}
 /*Burger Styles*/
 .bt-menu {
   position: relative;
