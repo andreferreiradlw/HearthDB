@@ -128,5 +128,29 @@ export class FilterMenuComponent implements OnInit, OnChanges {
     // card array to be emitted
     this.filteredCards.emit(emitFilteredCards);
   }
-
+  onClearFilters() {
+    // tslint:disable-next-line:max-line-length
+    if (this.nameSearch !== '' || this.selectedType !== '' || this.selectedClass !== '' || this.selectedManaCost !== '' || this.selectedSet !== '' || this.selectedRarity !== '') {
+      this.nameSearch = '';
+      this.selectedType = '';
+      this.selectedClass = '';
+      this.selectedManaCost = '';
+      this.selectedSet = '';
+      this.selectedRarity = '';
+      // run empty filter
+      // filter using pipe
+      const emitFilteredCards = this.searchFilter
+        .transform(
+          this.initialCards,
+          this.nameSearch,
+          this.selectedClass,
+          this.selectedType,
+          this.selectedSet,
+          this.selectedRarity,
+          this.selectedManaCost
+        );
+      // card array to be emitted
+      this.filteredCards.emit(emitFilteredCards);
+    }
+  }
 }

@@ -50,6 +50,7 @@ export class HomeViewComponent implements OnInit {
     this.menuState = this.menuState === 'open' ? 'closed' : 'open';
   }
   onFilteredCards(filteredCards: any) {
+    // trigger input for Card View Component
     this.filteredCards = filteredCards;
   }
   onCardSelected(cardDetails: any) {

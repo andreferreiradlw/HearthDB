@@ -10,7 +10,6 @@
     <h4>HearthDB</h4>
   </div>
 </header>
-
 <!--Card List Component-->
 <div class="card-container" [ngClass]="(menuState === 'open') ? 'card-container-open' : ''">
   <app-card-view [filteredCards]="filteredCards" [menuState]="menuState" (cardSelected)="onCardSelected($event)"></app-card-view>
