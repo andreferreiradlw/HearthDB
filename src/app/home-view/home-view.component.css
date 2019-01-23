@@ -51,7 +51,7 @@ app-card-view {
   margin: 0;
   color: white;
 }
-/*Slide Menu*/
+/*Slide Menus*/
 .side-menu {
   display: flex;
   flex-direction: column;
@@ -118,28 +118,36 @@ app-card-view {
 /* Larger desktop */
 @media (min-width: 1200px) {
   .side-menu {
-    width: 30vw;
-    background: rgb(0, 0, 0);
+    width: 35vw;
+    background: url('../../assets/hs_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   .card-container-open {
     align-items: flex-end;
   }
   .card-container-open > app-card-view {
-    width: 70vw;
+    width: 65vw;
     padding: 0 2%;
   }
   .footer.footer-open {
     justify-content: flex-end;
   }
   .footer > p.footer-open {
-    width: 70%;
+    width: 65%;
   }
 }
 /* Large desktop */
 @media (min-width: 980px) and (max-width: 1199px) {
   .side-menu {
     width: 50vw;
-    background: rgb(0, 0, 0);
+    background: url('../../assets/hs_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   .card-container-open {
     align-items: flex-end;
@@ -159,7 +167,11 @@ app-card-view {
 @media (min-width: 768px) and (max-width: 979px) {
   .side-menu {
     width: 50vw;
-    background: rgb(0, 0, 0);
+    background: url('../../assets/hs_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   .card-container-open {
     align-items: flex-end;

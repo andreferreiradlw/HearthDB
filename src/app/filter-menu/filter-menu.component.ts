@@ -5,7 +5,7 @@ import { SearchFilterPipePipe } from '../SearchFilterPipe.pipe';
   selector: 'app-filter-menu',
   templateUrl: './filter-menu.component.html',
   styleUrls: ['./filter-menu.component.css'],
-  providers: [SearchFilterPipePipe],
+  providers: [SearchFilterPipePipe]
 })
 export class FilterMenuComponent implements OnInit, OnChanges {
   // cards from api input

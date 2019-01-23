@@ -11,7 +11,7 @@
   </div>
 </header>
 <!--Card List Component-->
-<div class="card-container" [ngClass]="(menuState === 'open') ? 'card-container-open' : ''">
+<div class="card-container" [ngClass]="(menuState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
   <app-card-view [filteredCards]="filteredCards" [menuState]="menuState" (cardSelected)="onCardSelected($event)"></app-card-view>
   <div class="footer" [ngClass]="(menuState === 'open') ? 'footer-open' : ''">
     <p [ngClass]="(menuState === 'open') ? 'footer-open' : ''">This is my footer text</p>

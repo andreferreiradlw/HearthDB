@@ -49,6 +49,13 @@ export class HomeViewComponent implements OnInit {
     // 1-line if statement that toggles the value:
     this.menuState = this.menuState === 'open' ? 'closed' : 'open';
   }
+  closeMenu(event: any) {
+    const nodeValue = event.target.id;
+    if (nodeValue === 'card-container' || nodeValue === '') {
+      this.menuState = 'closed';
+    }
+  }
+  // events
   onFilteredCards(filteredCards: any) {
     // trigger input for Card View Component
     this.filteredCards = filteredCards;

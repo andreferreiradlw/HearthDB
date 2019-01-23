@@ -1,9 +1,11 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
+import { OrderByPipePipe } from '../orderByPipe.pipe';
 
 @Component({
   selector: 'app-card-view',
   templateUrl: './card-view.component.html',
-  styleUrls: ['./card-view.component.css']
+  styleUrls: ['./card-view.component.css'],
+  providers: [ OrderByPipePipe ]
 })
 export class CardViewComponent implements OnInit, OnChanges {
   // parent inputs
@@ -19,12 +21,19 @@ export class CardViewComponent implements OnInit, OnChanges {
   slicedCards: any;
   filteredCardsLength: number;
   // sorting options
-  orderOptions = ['Cost', 'Name', 'Class', 'Type'];
+  orderOptions = [
+    {value: 'cost', label: 'Cost'},
+    {value: 'name', label: 'Name'},
+    {value: 'cardClass', label: 'Class'},
+    {value: 'type', label: 'Type'},
+  ];
+  orderByProperty = '';
   // switches
   viewSwitch = true; // gallery = true / table = false
   formatSwitch = true; // wild = true / strandard = false
+  sortingSwitch = false; // Ascending = false / Descending = true
 
-  constructor() { }
+  constructor(private orderFilter: OrderByPipePipe) { }
 
   ngOnInit() { }
 
@@ -32,8 +41,10 @@ export class CardViewComponent implements OnInit, OnChanges {
     // detect filter changes
     if ( changes['filteredCards'] && changes['filteredCards'].previousValue !== changes['filteredCards'].currentValue ) {
       // if changes @Input() filteredCards
-      this.totalPages = Math.ceil(changes['filteredCards'].currentValue / this.itemsPerPage);
-      this.filteredCardsLength = changes['filteredCards'].currentValue.length;
+      // change order
+      this.filteredCards = this.orderFilter.transform(this.filteredCards, this.orderByProperty, this.sortingSwitch);
+      this.totalPages = Math.ceil(this.filteredCards / this.itemsPerPage);
+      this.filteredCardsLength = this.filteredCards.length;
       // slice cards with defaults
       this.onPageChange(1);
     }
@@ -49,13 +60,24 @@ export class CardViewComponent implements OnInit, OnChanges {
     this.slicedCards = this.filteredCards.slice(start, end);
     // set total pages
     this.totalPages = Math.ceil(this.filteredCards.length / this.itemsPerPage);
-    console.log(this.slicedCards);
+    // console.log(this.slicedCards);
   }
 
   onItemsPerPageChange() {
     // this.itemsPerPage = numberPerPage.target.value;
     this.onPageChange(1);
     // this.onOrderChange()
+  }
+  onOrderChange() {
+    // sort using Pipe
+    this.filteredCards = this.orderFilter.transform(this.filteredCards, this.orderByProperty, this.sortingSwitch);
+    // slice cards and go to page 1
+    this.onPageChange(1);
+  }
+  onSortingChange() {
+    // ascending / descending switch changed
+    this.sortingSwitch = !this.sortingSwitch;
+    this.onOrderChange();
   }
   // on card clicked
   onShowCardDetails(selectedCard: any) {
