@@ -32,14 +32,14 @@
     </div>
     <div class="col-12 col-sm-auto">
       <select
-        *ngIf="filteredCardsLength > 20"
+        *ngIf="filteredCardsLength > 30"
         id="itemsPerPAgeFilter"
         class="form-control"
         (change)="onItemsPerPageChange()"
         [(ngModel)]="itemsPerPage">
-        <option value="20" selected="this.itemsPerPage == 20" *ngIf="filteredCardsLength > 20">20</option>
-        <option value="35" selected="this.itemsPerPage == 35" *ngIf="filteredCardsLength > 20">35</option>
-        <option value="50" selected="this.itemsPerPage == 50" *ngIf="filteredCardsLength > 35">50</option>
+        <option value="30" selected="this.itemsPerPage == 30" *ngIf="filteredCardsLength > 30">30</option>
+        <option value="45" selected="this.itemsPerPage == 45" *ngIf="filteredCardsLength > 45">45</option>
+        <option value="60" selected="this.itemsPerPage == 60" *ngIf="filteredCardsLength > 60">60</option>
       </select>
     </div>
   </div>

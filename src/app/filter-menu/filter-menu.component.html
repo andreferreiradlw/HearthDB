@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row justify-content-center">
-      <div class="col-10 text-left">
+      <div class="col-10 text-left filter-menu">
         <h2>Filter Cards</h2>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 text-center">
+      <div class="col-10 text-center filter-menu">
         <!--Name -->
         <input id="nameFilter" class="form-control" type="text" name="search" [(ngModel)]="nameSearch" (keyup)="onFilterChange($event)"
           autocomplete="off" placeholder="Filter by Name">
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 text-center">
+      <div class="col-10 text-center filter-menu">
         <!--Type -->
         <select id="typeFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedType">
           <option value="">Choose a Type</option>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 text-center">
+      <div class="col-10 text-center filter-menu">
         <!--Class -->
         <select id="classFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedClass">
           <option value="">Choose a Class</option>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 text-center">
+      <div class="col-10 text-center filter-menu">
         <!--Mana Cost -->
         <select id="manaCostFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedManaCost">
           <option value="">Choose Mana Cost</option>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 text-center">
+      <div class="col-10 text-center filter-menu">
         <!--Set -->
         <select id="setFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedSet">
           <option value="">Choose a Set</option>
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 text-center">
+      <div class="col-10 text-center filter-menu">
         <!--Rarity -->
         <select id="rarityFilter" class="form-control" (change)="onFilterChange($event)" [(ngModel)]="selectedRarity">
           <option value="">Choose Rarity</option>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10">
+      <div class="col-10 filter-menu">
         <button
           type="button"
           class="btn btn-primary"

@@ -16,7 +16,7 @@ export class CardViewComponent implements OnInit, OnChanges {
   @Output() cardSelected = new EventEmitter();
   // default pagination strings
   page = 1;
-  itemsPerPage = 20;
+  itemsPerPage = 30;
   totalPages: number;
   // cards strings
   slicedCards: any;
@@ -61,13 +61,11 @@ export class CardViewComponent implements OnInit, OnChanges {
     this.slicedCards = this.filteredCards.slice(start, end);
     // set total pages
     this.totalPages = Math.ceil(this.filteredCards.length / this.itemsPerPage);
-    // console.log(this.slicedCards);
   }
 
   onItemsPerPageChange() {
     // this.itemsPerPage = numberPerPage.target.value;
     this.onPageChange(1);
-    // this.onOrderChange()
   }
   onOrderChange() {
     // sort using Pipe

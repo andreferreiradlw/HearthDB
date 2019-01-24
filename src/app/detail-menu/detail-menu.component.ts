@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-detail-menu',
@@ -12,10 +12,9 @@ export class DetailMenuComponent implements OnInit, OnChanges {
   // display closed
   @Output() detailsClosed = new EventEmitter();
   constructor() { }
-
-  ngOnInit() {
-  }
-
+  // on init
+  ngOnInit() { }
+  // on changes to @Input
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     // detect filter changes
     if ( changes['cardSelected'] && changes['cardSelected'].previousValue !== changes['cardSelected'].currentValue ) {

@@ -5,7 +5,7 @@
 <!--Header Bar-->
 <header class="main-header">
   <!--Menu Button-->
-  <div (click)="toggleMenu()" [ngClass]="(menuState === 'open') ? 'active' : ''" class="bt-menu">
+  <div (click)="(detailState === 'open') ? '' : toggleMenu()" [ngClass]="(menuState === 'open') ? 'active' : ''" class="bt-menu">
     <span></span>
   </div>
   <div class="menu-logo">

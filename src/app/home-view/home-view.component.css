@@ -57,7 +57,7 @@ app-card-view {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.644);
+  background: black;
   color: #fff;
   position: fixed;
   left: auto;
@@ -119,7 +119,9 @@ app-card-view {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-
+.disabled {
+  cursor: not-allowed;
+}
 /* Larger desktop */
 @media (min-width: 1200px) {
   .side-menu {

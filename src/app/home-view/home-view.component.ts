@@ -53,7 +53,12 @@ export class HomeViewComponent implements OnInit {
   closeMenu(event: any) {
     const nodeValue = event.target.id;
     if (nodeValue === 'card-container' || nodeValue === '') {
-      this.menuState = 'closed';
+      // close the details menu first
+      if (this.detailState === 'open') {
+        this.detailState = 'closed';
+      } else {
+        this.menuState = 'closed';
+      }
     }
   }
   onDetailsClosed(event: any) {
@@ -65,7 +70,6 @@ export class HomeViewComponent implements OnInit {
     this.filteredCards = filteredCards;
   }
   onCardSelected(cardDetails: any) {
-    console.log(cardDetails);
     this.cardSelected = cardDetails;
     // enable card details side menu component
     this.detailState = 'open';
