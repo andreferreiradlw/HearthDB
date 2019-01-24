@@ -1,5 +1,7 @@
 <!--Side Menu with Slide-->
-<app-filter-menu [@slideInOut]="menuState" class="side-menu" [collectibleCards]="cardCollection" (filteredCards)="onFilteredCards($event)"></app-filter-menu>
+<app-filter-menu [@slideInOut]="menuState" class="side-menu filter-menu" [collectibleCards]="cardCollection" (filteredCards)="onFilteredCards($event)"></app-filter-menu>
+<!--Card Detail Menu with Slide-->
+<app-detail-menu [@slideInOut]="detailState" class="side-menu detail-menu" [cardSelected]="cardSelected" (detailsClosed)="onDetailsClosed($event)"></app-detail-menu>
 <!--Header Bar-->
 <header class="main-header">
   <!--Menu Button-->
@@ -11,10 +13,10 @@
   </div>
 </header>
 <!--Card List Component-->
-<div class="card-container" [ngClass]="(menuState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
-  <app-card-view [filteredCards]="filteredCards" [menuState]="menuState" (cardSelected)="onCardSelected($event)"></app-card-view>
-  <div class="footer" [ngClass]="(menuState === 'open') ? 'footer-open' : ''">
-    <p [ngClass]="(menuState === 'open') ? 'footer-open' : ''">This is my footer text</p>
+<div class="card-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
+  <app-card-view [filteredCards]="filteredCards" [menuState]="menuState" [detailState]="detailState" (cardSelected)="onCardSelected($event)"></app-card-view>
+  <div class="footer" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
+    <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">This is my footer text</p>
   </div>
 </div>
 <!--Maybe a footer, but probably not-->

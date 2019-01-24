@@ -1,0 +1,24 @@
+<!--
+
+-->
+<div class="container">
+  <div class="row">
+    <div class="col-12" (click)="onCloseDetails()">
+      <p>close</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="cardDisplay !== undefined">
+        <p>{{ cardDisplay.artist }}</p>
+        <p>{{ cardDisplay.flavor }}</p>
+        <p>{{ cardDisplay.text }}</p>
+        <p>{{ cardDisplay.cardClass }}</p>
+        <p>{{ cardDisplay.name }}</p>
+        <p>{{ cardDisplay.rarity }}</p>
+        <p>{{ cardDisplay.set }}</p>
+        <p>{{ cardDisplay.type }}</p>
+      </div>
+    </div>
+  </div>
+</div>

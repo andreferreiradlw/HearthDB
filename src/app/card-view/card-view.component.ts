@@ -11,6 +11,7 @@ export class CardViewComponent implements OnInit, OnChanges {
   // parent inputs
   @Input() filteredCards: any;
   @Input() menuState: any;
+  @Input() detailState: any;
   // output event emitter when card clicked
   @Output() cardSelected = new EventEmitter();
   // default pagination strings
@@ -81,7 +82,6 @@ export class CardViewComponent implements OnInit, OnChanges {
   }
   // on card clicked
   onShowCardDetails(selectedCard: any) {
-    // console.log(selectedCard);
     this.cardSelected.emit(selectedCard);
   }
 }

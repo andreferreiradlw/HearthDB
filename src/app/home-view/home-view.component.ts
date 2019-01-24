@@ -27,9 +27,10 @@ export class HomeViewComponent implements OnInit {
   cardCollection: Card[] = [];
   filteredCards: any;
   private cardsSub: Subscription;
-
+  cardSelected: any;
   // menu states
   menuState = 'closed';
+  detailState = 'closed';
 
   constructor(private cardService: CardCollectionService) { }
 
@@ -55,6 +56,9 @@ export class HomeViewComponent implements OnInit {
       this.menuState = 'closed';
     }
   }
+  onDetailsClosed(event: any) {
+    this.detailState = 'closed';
+  }
   // events
   onFilteredCards(filteredCards: any) {
     // trigger input for Card View Component
@@ -62,6 +66,8 @@ export class HomeViewComponent implements OnInit {
   }
   onCardSelected(cardDetails: any) {
     console.log(cardDetails);
+    this.cardSelected = cardDetails;
     // enable card details side menu component
+    this.detailState = 'open';
   }
 }

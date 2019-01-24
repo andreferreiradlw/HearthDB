@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { HomeViewComponent } from './home-view/home-view.component';
 import { CardViewComponent } from './card-view/card-view.component';
 import { FilterMenuComponent } from './filter-menu/filter-menu.component';
+import { DetailMenuComponent } from './detail-menu/detail-menu.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeViewComponent,
       CardViewComponent,
-      FilterMenuComponent
+      FilterMenuComponent,
+      DetailMenuComponent
    ],
    imports: [
       BrowserModule,

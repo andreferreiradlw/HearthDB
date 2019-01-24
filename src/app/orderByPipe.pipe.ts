@@ -23,6 +23,7 @@ export class OrderByPipePipe implements PipeTransform {
       return this.sortRandom(values);
     }
     if (Array.isArray(values) && key === 'cost') {
+      // spread from original array
       const valuesFilter = [...values];
       // filter cards with cost value
       const filteredArray = valuesFilter.filter(function (card) {
