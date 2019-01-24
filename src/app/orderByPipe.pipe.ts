@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class OrderByPipePipe implements PipeTransform {
-  transform(values: any, key?: string, reverse?: boolean) {
+  transform(values: any[], key?: string, reverse?: boolean) {
     // logs
     // console.log(values);
     console.log(key + '' + reverse);
@@ -23,17 +23,30 @@ export class OrderByPipePipe implements PipeTransform {
       return this.sortRandom(values);
     }
     if (Array.isArray(values) && key === 'cost') {
-      // filter cards without the cost value
-      const filteredArray: string[] = values.filter(value => value.cost != null && value.cost !== undefined);
-      // console.log(filteredArray);
-      // must be 23 length
-      // const filteredOutArray: string[] = values.filter(value => value.cost = null || value.cost === undefined);
+      const valuesFilter = [...values];
+      // filter cards with cost value
+      const filteredArray = valuesFilter.filter(function (card) {
+        const cost = card.cost;
+        if (cost !== null && cost !== undefined) {
+          return card;
+        }
+      });
+      // get cards with no cost
+      const filteredOutArray = valuesFilter.filter(function (card) {
+        const cost = card.cost;
+        if (cost == null || cost === undefined) {
+          return card;
+        }
+      });
       sortedNumbersArray = this.sortNumbers(filteredArray, key);
-      console.log(sortedNumbersArray);
       if (reverse) {
-        return this.reverseArray(sortedNumbersArray);
+        // reverse sorted array
+        const reverseArray = this.reverseArray(sortedNumbersArray);
+        // merge reverse array with filtered out cards with no cost
+        return [...reverseArray, ...filteredOutArray]
       } else {
-        return sortedNumbersArray;
+        // merge sorted array with filtered out cards with no cost
+        return [...sortedNumbersArray, ...filteredOutArray];
       }
     } else {
       // sort by selected key
@@ -71,31 +84,6 @@ export class OrderByPipePipe implements PipeTransform {
       } else {
         return 0;
       }
-      console.log('None!!');
-      /*
-      if (a.cost && b.cost) {
-        if(!isNaN(parseInt(a.cost.toString(), 10)) && !isNaN(parseInt(b.cost.toString(), 10))) {
-          if (a.cost < b.cost) {
-            return -1;
-          }
-          if (a.cost > b.cost) {
-            return 1;
-          }
-          return 0;
-        }
-      }
-      // return this.getValueNumber(a, key) - this.getValueNumber(b, key);
-
-      if ( this.getValueNumber(a, key) < this.getValueNumber(b, key)) {
-        return -1;
-      }
-      if ( this.getValueNumber(a, key) > this.getValueNumber(b, key)) {
-        return 1;
-      } else {
-        console.log(isNaN(parseInt(a.cost.toString(), 10)));
-        return 0;
-      }
-      */
     });
     return array;
   }
