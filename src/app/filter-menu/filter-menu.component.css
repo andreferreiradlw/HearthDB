@@ -1,3 +1,7 @@
+.container {
+  padding: 30px 0;
+  background: rgba(0, 0, 0, 0.5);
+}
 .filter-menu {
   padding: 10px 5px;
 }

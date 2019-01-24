@@ -40,9 +40,6 @@ export class HomeViewComponent implements OnInit {
     this.cardsSub = this.cardService.getCardUpdateListener()
       .subscribe( cardData => {
         this.cardCollection = cardData;
-        // no initial filters
-        // this.filteredCards = cardData;
-        // console.log(this.cardCollection);
       });
   }
   // menu states

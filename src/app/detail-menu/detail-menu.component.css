@@ -1,0 +1,39 @@
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 80px 5% 0 0;
+  padding: 0;
+}
+.close-button p {
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 100vh;
+}
+.card-details-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card-art-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.card-art {
+  max-width: 48%;
+  width: 48%;
+  height: 35%;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+}
+.common-art {
+  padding: 5% 0.6%;
+}

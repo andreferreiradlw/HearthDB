@@ -11,16 +11,18 @@
     </div>
     <div class="col-12 col-sm-auto switch-container">
       <!--Switch Format-->
+      <img src="../../assets/Mode_Wild.png" alt="Wild" width="40px" height="40px" style="padding-right: 8px;">
       <label id="formatSwitch" class="switch">
         <input id="formatSwitchInput" type="checkbox" [checked]="formatSwitch">
         <span id="formatSwitchSlider" class="slider round"></span>
       </label>
+      <img src="../../assets/Mode_Standard.png" alt="Standard" width="40px" height="40px" style="padding-left: 8px;">
     </div>
     <div class="col-12 col-sm-auto switch-container">
       <!--Sorting-->
       <i class="fa fa-sort fa-icons" aria-hidden="true"></i>
       <select id="orderFilter" class="form-control" (change)="onOrderChange()" [(ngModel)]="orderByProperty">
-        <option id="orderFilterDefault" value="">&#xf107; Random</option>
+        <option id="orderFilterDefault" value="">Random</option>
         <option *ngFor="let order of orderOptions" [value]="order.value">{{order.label}}</option>
       </select>
     </div>
@@ -74,7 +76,7 @@
           <tr *ngFor="let card of slicedCards">
             <th scope="row">{{card.cost}}</th>
             <td>{{card.name}}</td>
-            <td>{{card.cardClass}}</td>
+            <td>{{card.formattedClass()}}</td>
             <td>{{card.type}}</td>
           </tr>
         </tbody>

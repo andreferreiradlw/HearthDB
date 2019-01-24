@@ -47,12 +47,13 @@ app-card-view {
   align-items: center;
   justify-content: flex-start;
 }
-.menu-logo h4 {
+.menu-logo h3 b {
   margin: 0;
   color: white;
+  padding-top: 30px;
 }
 /*Slide Menus*/
-.side-menu {
+.side-menu-filter {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,11 +66,22 @@ app-card-view {
   left: 0;
   bottom: 0;
   width: 100vw;
-}
-.filter-menu {
   z-index: 101;
 }
-.detail-menu {
+.side-menu-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 120px;
+  background: black;
+  color: #fff;
+  position: fixed;
+  left: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
   z-index: 102;
 }
 /*Burger Styles*/
@@ -123,7 +135,8 @@ app-card-view {
 }
 /* Larger desktop */
 @media (min-width: 1200px) {
-  .side-menu {
+  .side-menu-filter,
+  .side-menu-detail {
     width: 35vw;
     background: url('../../assets/hs_background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -147,7 +160,8 @@ app-card-view {
 }
 /* Large desktop */
 @media (min-width: 980px) and (max-width: 1199px) {
-  .side-menu {
+  .side-menu-filter,
+  .side-menu-detail {
     width: 50vw;
     background: url('../../assets/hs_background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -171,7 +185,8 @@ app-card-view {
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-  .side-menu {
+  .side-menu-filter,
+  .side-menu-detail {
     width: 50vw;
     background: url('../../assets/hs_background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;

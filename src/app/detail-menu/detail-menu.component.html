@@ -1,23 +1,34 @@
 <!--
 
 -->
-<div class="container">
-  <div class="row">
-    <div class="col-12" (click)="onCloseDetails()">
-      <p>close</p>
-    </div>
-  </div>
+<div class="close-button" (click)="onCloseDetails()">
+  <p>close</p>
+</div>
+<div class="container" *ngIf="cardDisplay !== undefined">
   <div class="row">
     <div class="col-12">
-      <div *ngIf="cardDisplay !== undefined">
+        <h3>{{ cardDisplay.name }}</h3>
+        <p [innerHTML]="cardDisplay.flavor"></p>
+    </div>
+    <div class="col-12">
+      <div class="card-art-container">
+        <img class="card-art common-art" src="{{ cardDisplay.image() }}" alt="Card Art">
+        <!--Rastakhan's Rumble Golden Cards Not yet Available in API-->
+        <img class="card-art" src="{{ cardDisplay.goldImage() }}" alt="Gold Card Art" *ngIf="cardDisplay.set !== 'TROLL'">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card-details-container">
+        <!--
         <p>{{ cardDisplay.artist }}</p>
-        <p>{{ cardDisplay.flavor }}</p>
         <p>{{ cardDisplay.text }}</p>
         <p>{{ cardDisplay.cardClass }}</p>
-        <p>{{ cardDisplay.name }}</p>
         <p>{{ cardDisplay.rarity }}</p>
         <p>{{ cardDisplay.set }}</p>
         <p>{{ cardDisplay.type }}</p>
+        <p>{{ cardDisplay.id }}</p>
+        <p>{{ cardDisplay.dbfId }}</p>
+        -->
       </div>
     </div>
   </div>

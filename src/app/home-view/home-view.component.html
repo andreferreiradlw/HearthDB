@@ -1,7 +1,7 @@
 <!--Side Menu with Slide-->
-<app-filter-menu [@slideInOut]="menuState" class="side-menu filter-menu" [collectibleCards]="cardCollection" (filteredCards)="onFilteredCards($event)"></app-filter-menu>
+<app-filter-menu [@slideInOut]="menuState" class="side-menu-filter" [collectibleCards]="cardCollection" (filteredCards)="onFilteredCards($event)"></app-filter-menu>
 <!--Card Detail Menu with Slide-->
-<app-detail-menu [@slideInOut]="detailState" class="side-menu detail-menu" [cardSelected]="cardSelected" (detailsClosed)="onDetailsClosed($event)"></app-detail-menu>
+<app-detail-menu [@slideInOut]="detailState" class="side-menu-detail" [cardSelected]="cardSelected" (detailsClosed)="onDetailsClosed($event)"></app-detail-menu>
 <!--Header Bar-->
 <header class="main-header">
   <!--Menu Button-->
@@ -9,7 +9,7 @@
     <span></span>
   </div>
   <div class="menu-logo">
-    <h4>HearthDB</h4>
+    <h3><b>HearthDB</b></h3>
   </div>
 </header>
 <!--Card List Component-->
