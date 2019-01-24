@@ -1,36 +1,42 @@
 <div id="card-container" class="container">
-  <div class="row justify-content-start">
-    <div class="col-12 col-sm-auto">
+  <div class="row justify-content-start filter-row">
+    <div class="col-12 col-sm-auto switch-container">
       <!--Switch View-->
+      <i class="fa fa-table fa-icons" aria-hidden="true"></i>
       <label id="viewSwitch" class="switch">
         <input id="viewSwitchInput" type="checkbox" [checked]="viewSwitch" (change)="viewSwitch = !viewSwitch">
         <span id="viewSwitchSlider" class="slider round"></span>
       </label>
+      <i class="fa fa-image fa-icons" aria-hidden="true"></i>
     </div>
-    <div class="col-12 col-sm-auto">
+    <div class="col-12 col-sm-auto switch-container">
       <!--Switch Format-->
       <label id="formatSwitch" class="switch">
         <input id="formatSwitchInput" type="checkbox" [checked]="formatSwitch">
         <span id="formatSwitchSlider" class="slider round"></span>
       </label>
     </div>
-    <div class="col-12 col-sm-auto">
+    <div class="col-12 col-sm-auto switch-container">
       <!--Sorting-->
+      <i class="fa fa-sort fa-icons" aria-hidden="true"></i>
       <select id="orderFilter" class="form-control" (change)="onOrderChange()" [(ngModel)]="orderByProperty">
-        <option id="orderFilterDefault" value="">Random</option>
+        <option id="orderFilterDefault" value="">&#xf107; Random</option>
         <option *ngFor="let order of orderOptions" [value]="order.value">{{order.label}}</option>
       </select>
     </div>
-    <div class="col-12 col-sm-auto" *ngIf="orderByProperty !== ''">
+    <div class="col-12 col-sm-auto switch-container" *ngIf="orderByProperty !== ''">
       <!--Ascending / Descending Switch-->
-      Asc
+      <i class="fas fa-sort-numeric-down fa-icons" aria-hidden="true" *ngIf="orderByProperty === 'cost'"></i>
+      <i class="fas fa-sort-alpha-down fa-icons" aria-hidden="true" *ngIf="orderByProperty !== 'cost'"></i>
       <label id="sortingSwitch" class="switch">
         <input id="sortingSwitchInput" type="checkbox" [checked]="sortingSwitch" (change)="onSortingChange()" [disabled]="orderByProperty === ''">
         <span id="sortingSwitchSlider" class="slider round"></span>
       </label>
-      Desc
+      <i class="fas fa-sort-numeric-up fa-icons" aria-hidden="true" *ngIf="orderByProperty === 'cost'"></i>
+      <i class="fas fa-sort-alpha-up fa-icons" aria-hidden="true" *ngIf="orderByProperty !== 'cost'"></i>
     </div>
-    <div class="col-12 col-sm-auto">
+    <div class="col-12 col-sm-auto switch-container">
+      <i class="fas fa-hashtag fa-icons" aria-hidden="true"></i>
       <select
         *ngIf="filteredCardsLength > 30"
         id="itemsPerPAgeFilter"

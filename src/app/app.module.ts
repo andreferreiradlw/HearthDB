@@ -33,4 +33,5 @@ import { DetailMenuComponent } from './detail-menu/detail-menu.component';
       AppComponent
    ]
 })
-export class AppModule { }
+export class AppModule {
+}
