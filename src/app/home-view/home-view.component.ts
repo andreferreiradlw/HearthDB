@@ -44,8 +44,14 @@ export class HomeViewComponent implements OnInit {
   }
   // menu states
   toggleMenu() {
-    // 1-line if statement that toggles the value:
-    this.menuState = this.menuState === 'open' ? 'closed' : 'open';
+    if (this.menuState === 'closed' && this.detailState === 'open') {
+      this.menuState = 'open';
+      this.detailState = 'closed';
+    } else if (this.detailState === 'closed') {
+      this.menuState = this.menuState === 'open' ? 'closed' : 'open';
+    } else {
+      this.detailState = 'closed';
+    }
   }
   closeMenu(event: any) {
     const nodeValue = event.target.id;

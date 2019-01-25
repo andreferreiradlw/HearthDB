@@ -16,7 +16,7 @@ export class CardViewComponent implements OnInit, OnChanges {
   @Output() cardSelected = new EventEmitter();
   // default pagination strings
   page = 1;
-  itemsPerPage = 30;
+  itemsPerPage = 18;
   totalPages: number;
   // cards strings
   slicedCards: any;

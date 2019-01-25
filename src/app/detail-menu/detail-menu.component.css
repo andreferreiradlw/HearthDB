@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 100vh;
+}
 .close-button {
   position: absolute;
   top: 0;
@@ -5,15 +12,11 @@
   margin: 80px 5% 0 0;
   padding: 0;
 }
+.close-button:hover {
+  cursor: pointer;
+}
 .close-button p {
   margin: 0;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  max-height: 100vh;
 }
 .card-details-container {
   width: 100%;
@@ -27,7 +30,6 @@
   width: 100%;
 }
 .card-art {
-  max-width: 48%;
   width: 48%;
   height: 35%;
   margin: 0;
@@ -36,4 +38,29 @@
 }
 .common-art {
   padding: 5% 0.6%;
+}
+/* Larger desktop */
+@media (min-width: 1400px) {
+  .card-art {
+    width: 43%;
+  }
+  .common-art {
+    padding: 3.5% 0 0;
+  }
+}
+/* Large desktop */
+@media (min-width: 980px) and (max-width: 1199px) {
+
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
 }

@@ -10,6 +10,7 @@
   justify-content: flex-start;
 }
 app-card-view {
+  width: 100%;
   flex-grow: 1;
   transition: width 400ms ease-in-out;
 }
@@ -27,6 +28,7 @@ app-card-view {
   padding: 10px 25px;
   width: 100%;
   transition: width 400ms ease-in-out;
+  font-weight: normal;
 }
 /*Top Menu*/
 .main-header {
@@ -47,10 +49,9 @@ app-card-view {
   align-items: center;
   justify-content: flex-start;
 }
-.menu-logo h3 b {
+.menu-logo h3 {
   margin: 0;
   color: white;
-  padding-top: 30px;
 }
 /*Slide Menus*/
 .side-menu-filter {
@@ -90,6 +91,9 @@ app-card-view {
   display: block;
   width: 55px;
   height: 55px;
+}
+.bt-menu:hover {
+  cursor: pointer;
 }
 .bt-menu:after, .bt-menu:before {
   content: "";

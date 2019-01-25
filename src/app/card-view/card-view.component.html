@@ -1,6 +1,6 @@
 <div id="card-container" class="container">
-  <div class="row justify-content-start filter-row">
-    <div class="col-12 col-sm-auto switch-container">
+  <div class="row filter-row" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'row justify-content-center' : 'justify-content-start'">
+    <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <!--Switch View-->
       <i class="fa fa-table fa-icons" aria-hidden="true"></i>
       <label id="viewSwitch" class="switch">
@@ -9,7 +9,7 @@
       </label>
       <i class="fa fa-image fa-icons" aria-hidden="true"></i>
     </div>
-    <div class="col-12 col-sm-auto switch-container">
+    <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <!--Switch Format-->
       <img src="../../assets/Mode_Wild.png" alt="Wild" width="40px" height="40px" style="padding-right: 8px;">
       <label id="formatSwitch" class="switch">
@@ -18,7 +18,7 @@
       </label>
       <img src="../../assets/Mode_Standard.png" alt="Standard" width="40px" height="40px" style="padding-left: 8px;">
     </div>
-    <div class="col-12 col-sm-auto switch-container">
+    <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <!--Sorting-->
       <i class="fa fa-sort fa-icons" aria-hidden="true"></i>
       <select id="orderFilter" class="form-control" (change)="onOrderChange()" [(ngModel)]="orderByProperty">
@@ -26,7 +26,7 @@
         <option *ngFor="let order of orderOptions" [value]="order.value">{{order.label}}</option>
       </select>
     </div>
-    <div class="col-12 col-sm-auto switch-container" *ngIf="orderByProperty !== ''">
+    <div class="switch-container" *ngIf="orderByProperty !== ''" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <!--Ascending / Descending Switch-->
       <i class="fas fa-sort-numeric-down fa-icons" aria-hidden="true" *ngIf="orderByProperty === 'cost'"></i>
       <i class="fas fa-sort-alpha-down fa-icons" aria-hidden="true" *ngIf="orderByProperty !== 'cost'"></i>
@@ -37,27 +37,31 @@
       <i class="fas fa-sort-numeric-up fa-icons" aria-hidden="true" *ngIf="orderByProperty === 'cost'"></i>
       <i class="fas fa-sort-alpha-up fa-icons" aria-hidden="true" *ngIf="orderByProperty !== 'cost'"></i>
     </div>
-    <div class="col-12 col-sm-auto switch-container">
+    <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <i class="fas fa-hashtag fa-icons" aria-hidden="true"></i>
       <select
-        *ngIf="filteredCardsLength > 30"
+        *ngIf="filteredCardsLength > 18"
         id="itemsPerPAgeFilter"
         class="form-control"
         (change)="onItemsPerPageChange()"
         [(ngModel)]="itemsPerPage">
+        <option value="18" selected="this.itemsPerPage == 18" *ngIf="filteredCardsLength > 18">18</option>
         <option value="30" selected="this.itemsPerPage == 30" *ngIf="filteredCardsLength > 30">30</option>
         <option value="45" selected="this.itemsPerPage == 45" *ngIf="filteredCardsLength > 45">45</option>
-        <option value="60" selected="this.itemsPerPage == 60" *ngIf="filteredCardsLength > 60">60</option>
       </select>
     </div>
   </div>
   <div id="card-list" *ngIf="viewSwitch" class="row justify-content-center">
-    <div
-      class="card"
-      *ngFor="let card of slicedCards"
-      (click)="onShowCardDetails(card)"
-      [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-sm-6 col-md-6 col-lg-4 col-xl-3' : 'col-sm-6 col-md-3 col-lg-2 col-xl-2'">
-      <img id="card-image" class="card-image" src="{{ card.image() }}">
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <div
+          class="card"
+          *ngFor="let card of slicedCards"
+          (click)="onShowCardDetails(card)"
+          [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-sm-6 col-md-6 col-lg-4 col-xl-3' : 'col-sm-6 col-md-3 col-lg-2 col-xl-2'">
+          <img id="card-image" class="card-image" src="{{ card.image() }}">
+        </div>
+      </div>
     </div>
   </div>
   <div id="card-table" *ngIf="!viewSwitch" class="row justify-content-center">

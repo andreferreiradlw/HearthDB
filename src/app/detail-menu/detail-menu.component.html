@@ -6,8 +6,8 @@
 </div>
 <div class="container" *ngIf="cardDisplay !== undefined">
   <div class="row">
-    <div class="col-12">
-        <h3>{{ cardDisplay.name }}</h3>
+    <div class="col-12 card-title">
+        <h3><b>{{ cardDisplay.name }}</b></h3>
         <p [innerHTML]="cardDisplay.flavor"></p>
     </div>
     <div class="col-12">

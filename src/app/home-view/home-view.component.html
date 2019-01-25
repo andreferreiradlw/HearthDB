@@ -5,7 +5,10 @@
 <!--Header Bar-->
 <header class="main-header">
   <!--Menu Button-->
-  <div (click)="(detailState === 'open') ? '' : toggleMenu()" [ngClass]="(menuState === 'open') ? 'active' : ''" class="bt-menu">
+  <div
+    (click)="toggleMenu()"
+    [ngClass]="{ 'active': (menuState === 'open'), 'disabled': (detailState === 'open') && (menuState === 'open')}"
+    class="bt-menu">
     <span></span>
   </div>
   <div class="menu-logo">
@@ -16,7 +19,9 @@
 <div class="card-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
   <app-card-view [filteredCards]="filteredCards" [menuState]="menuState" [detailState]="detailState" (cardSelected)="onCardSelected($event)"></app-card-view>
   <div class="footer" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
-    <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">This is my footer text</p>
+    <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
+      Built by Andre. Powered by <a href="https://hearthstonejson.com/">HearthstoneJSON</a>
+    </p>
   </div>
 </div>
 <!--Maybe a footer, but probably not-->
