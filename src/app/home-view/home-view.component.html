@@ -17,12 +17,16 @@
 </header>
 <!--Card List Component-->
 <div class="card-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
-  <app-card-view [filteredCards]="filteredCards" [menuState]="menuState" [detailState]="detailState" (cardSelected)="onCardSelected($event)"></app-card-view>
+  <app-card-view
+    [filteredCards]="filteredCards"
+    [menuState]="menuState"
+    [detailState]="detailState"
+    (cardSelected)="onCardSelected($event)"
+    (changeDetailState)="onChangeDetailState($event)"></app-card-view>
   <div class="footer" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
     <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
-      Built by Andre. Powered by <a href="https://hearthstonejson.com/">HearthstoneJSON</a>
+      Built by <a href="http://itsjustandre.com/">Andre</a>. Powered by <a href="https://hearthstonejson.com/">HearthstoneJSON</a>.
     </p>
   </div>
 </div>
-<!--Maybe a footer, but probably not-->
 

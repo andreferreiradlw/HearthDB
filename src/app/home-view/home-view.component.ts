@@ -77,4 +77,7 @@ export class HomeViewComponent implements OnInit {
     // enable card details side menu component
     this.detailState = 'open';
   }
+  onChangeDetailState(newDetailState: any) {
+    this.detailState = newDetailState;
+  }
 }

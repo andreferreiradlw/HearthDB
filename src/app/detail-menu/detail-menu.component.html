@@ -4,31 +4,64 @@
 <div class="close-button" (click)="onCloseDetails()">
   <p>close</p>
 </div>
-<div class="container" *ngIf="cardDisplay !== undefined">
-  <div class="row">
+<div class="container" *ngIf="cardDisplay">
+  <div class="row justify-content-start" style="min-width:100%;">
     <div class="col-12 card-title">
-        <h3><b>{{ cardDisplay.name }}</b></h3>
-        <p [innerHTML]="cardDisplay.flavor"></p>
+      <div class="row justify-content-start">
+        <div class="col-auto">
+          <div class="card-class" [ngStyle]="setClassStyles(cardDisplay.cardClass)">
+            <img src="{{ cardDisplay.getClassIcon() }}" alt="{{ cardDisplay.formattedClass() }}">
+            <h5><b>{{ cardDisplay.formattedClass() }}</b></h5>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="card-rarity" *ngIf="cardDisplay.rarity">
+            <h6><b>{{ cardDisplay.formattedRarity() }}</b></h6>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h1><b>{{ cardDisplay.name }}</b></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p [innerHTML]="cardDisplay.flavor" *ngIf="cardDisplay.flavor"></p>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-12">
       <div class="card-art-container">
         <img class="card-art common-art" src="{{ cardDisplay.image() }}" alt="Card Art">
         <!--Rastakhan's Rumble Golden Cards Not yet Available in API-->
-        <img class="card-art" src="{{ cardDisplay.goldImage() }}" alt="Gold Card Art" *ngIf="cardDisplay.set !== 'TROLL'">
+        <img class="card-art" src="{{ cardDisplay.goldImage() }}" alt="Gold Card Art" *ngIf="!((cardDisplay.set === 'TROLL') || (cardDisplay.set === 'HERO_SKINS'))"
+          [ngClass]="(cardDisplay.type === 'HERO') ? 'gold_hero' : ''">
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-12">
-      <div class="card-details-container">
-        <!--
-        <p>{{ cardDisplay.artist }}</p>
-        <p>{{ cardDisplay.text }}</p>
-        <p>{{ cardDisplay.cardClass }}</p>
-        <p>{{ cardDisplay.rarity }}</p>
-        <p>{{ cardDisplay.set }}</p>
-        <p>{{ cardDisplay.type }}</p>
-        <p>{{ cardDisplay.id }}</p>
-        <p>{{ cardDisplay.dbfId }}</p>
-        -->
+      <div class="row justify-content-center">
+        <div class="col-auto card-text-container" *ngIf="cardDisplay.text">
+          <h6 [innerHTML]="cardDisplay.text"></h6>
+        </div>
+      </div>
+      <div class="row justify-content-start">
+        <div class="col-6 card-details-container">
+          <h5 *ngIf="cardDisplay.artist"><b>Artist:</b><br>{{ cardDisplay.artist }}</h5>
+          <h5 *ngIf="cardDisplay.set"><b>Set:</b><br>{{ cardDisplay.getFormattedSet() }}</h5>
+        </div>
+        <div class="col-6 card-details-container">
+          <p>{{ cardDisplay.id }}</p>
+          <p>{{ cardDisplay.dbfId }}</p>
+          <p>Type: {{ cardDisplay.type }}</p>
+          <p>Attack: {{ cardDisplay.attack }}</p>
+          <p>Health: {{ cardDisplay.health }}</p>
+          <p>Cost: {{ cardDisplay.cost }}</p>
+        </div>
       </div>
     </div>
   </div>

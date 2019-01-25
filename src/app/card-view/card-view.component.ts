@@ -14,6 +14,7 @@ export class CardViewComponent implements OnInit, OnChanges {
   @Input() detailState: any;
   // output event emitter when card clicked
   @Output() cardSelected = new EventEmitter();
+  @Output() changeDetailState = new EventEmitter();
   // default pagination strings
   page = 1;
   itemsPerPage = 18;
@@ -21,6 +22,7 @@ export class CardViewComponent implements OnInit, OnChanges {
   // cards strings
   slicedCards: any;
   filteredCardsLength: number;
+  previousCard: any;
   // sorting options
   orderOptions = [
     {value: 'cost', label: 'Cost'},
@@ -80,6 +82,12 @@ export class CardViewComponent implements OnInit, OnChanges {
   }
   // on card clicked
   onShowCardDetails(selectedCard: any) {
-    this.cardSelected.emit(selectedCard);
+    if (this.previousCard === selectedCard) {
+      this.changeDetailState.emit('closed');
+      this.previousCard = '';
+    } else {
+      this.previousCard = selectedCard;
+      this.cardSelected.emit(selectedCard);
+    }
   }
 }

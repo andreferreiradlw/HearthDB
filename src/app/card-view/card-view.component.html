@@ -11,12 +11,12 @@
     </div>
     <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <!--Switch Format-->
-      <img src="../../assets/Mode_Wild.png" alt="Wild" width="40px" height="40px" style="padding-right: 8px;">
+      <img src="../../assets/Mode_Standard.png" alt="Standard" width="40px" height="40px" style="padding-left: 8px;">
       <label id="formatSwitch" class="switch">
         <input id="formatSwitchInput" type="checkbox" [checked]="formatSwitch">
         <span id="formatSwitchSlider" class="slider round"></span>
       </label>
-      <img src="../../assets/Mode_Standard.png" alt="Standard" width="40px" height="40px" style="padding-left: 8px;">
+      <img src="../../assets/Mode_Wild.png" alt="Wild" width="40px" height="40px" style="padding-right: 8px;">
     </div>
     <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <!--Sorting-->
@@ -94,10 +94,12 @@
         [maxSize]="4"
         [collectionSize]="filteredCardsLength"
         [(page)]="page"
-        [boundaryLinks]="false"
         [(pageSize)]="itemsPerPage"
         (pageChange)="onPageChange($event)"
-        *ngIf="totalPages > 1"></ngb-pagination>
+        *ngIf="totalPages > 1"
+        [rotate]="true"
+        [ellipses]="false"
+        [boundaryLinks]="true"></ngb-pagination>
     </div>
   </div>
 </div>

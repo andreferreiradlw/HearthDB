@@ -4,30 +4,58 @@
   align-items: center;
   justify-content: flex-start;
   max-height: 100vh;
+  padding: 20px 15px 20px 10px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .close-button {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 80px 5% 0 0;
+  margin: 70px 5% 0 0;
   padding: 0;
 }
 .close-button:hover {
   cursor: pointer;
 }
-.close-button p {
+.close-button p,
+.card-title h2,
+.card-title p,
+.card-title {
   margin: 0;
 }
-.card-details-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.card-class {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.card-class img {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+}
+.card-class h5,
+.card-rarity h6 {
+  margin: 0 10px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.card-rarity {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-bottom: 10px;
+  display: inline-block;
+  background-color: black;
 }
 .card-art-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  margin-bottom: 5px;
 }
 .card-art {
   width: 48%;
@@ -39,8 +67,42 @@
 .common-art {
   padding: 5% 0.6%;
 }
+.gold_hero {
+  transform: translateY(-25px);
+}
+.card-text-container {
+  text-align: center;
+  color: black;
+  background-color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  margin: 10px 0 15px;
+}
+.card-text-container > * {
+  margin: 0;
+}
+.card-details-container {
+  width: 100%;
+  display: flex;
+}
+.card-text {
+  width: 100%;
+}
+.card-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 15px;
+}
+.card-details-container p {
+  margin: 0 0 0 8px;
+}
 /* Larger desktop */
 @media (min-width: 1400px) {
+  .card-art-container {
+    margin-bottom: 20px;
+  }
   .card-art {
     width: 43%;
   }
