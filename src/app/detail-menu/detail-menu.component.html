@@ -1,8 +1,6 @@
-<!--
-
--->
+<!--Close Button-->
 <div class="close-button" (click)="onCloseDetails()">
-  <p>close</p>
+  <p>Close Details</p>
 </div>
 <div class="container" *ngIf="cardDisplay">
   <div class="row justify-content-start" style="min-width:100%;">
@@ -16,7 +14,7 @@
         </div>
         <div class="col-auto">
           <div class="card-rarity" *ngIf="cardDisplay.rarity">
-            <h6><b>{{ cardDisplay.formattedRarity() }}</b></h6>
+            <h6><b>{{ cardDisplay.formattedRarity() }} {{ cardDisplay.formattedType() }}</b></h6>
           </div>
         </div>
       </div>
@@ -32,17 +30,21 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center" style="min-width:100%;">
     <div class="col-12">
       <div class="card-art-container">
         <img class="card-art common-art" src="{{ cardDisplay.image() }}" alt="Card Art">
         <!--Rastakhan's Rumble Golden Cards Not yet Available in API-->
-        <img class="card-art" src="{{ cardDisplay.goldImage() }}" alt="Gold Card Art" *ngIf="!((cardDisplay.set === 'TROLL') || (cardDisplay.set === 'HERO_SKINS'))"
+        <img
+          class="card-art"
+          src="{{ cardDisplay.goldImage() }}"
+          alt="Gold Card Art"
+          *ngIf="!((cardDisplay.set === 'TROLL') || (cardDisplay.set === 'HERO_SKINS'))"
           [ngClass]="(cardDisplay.type === 'HERO') ? 'gold_hero' : ''">
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-start" style="min-width:100%;">
     <div class="col-12">
       <div class="row justify-content-center">
         <div class="col-auto card-text-container" *ngIf="cardDisplay.text">
@@ -55,12 +57,21 @@
           <h5 *ngIf="cardDisplay.set"><b>Set:</b><br>{{ cardDisplay.getFormattedSet() }}</h5>
         </div>
         <div class="col-6 card-details-container">
-          <p>{{ cardDisplay.id }}</p>
-          <p>{{ cardDisplay.dbfId }}</p>
-          <p>Type: {{ cardDisplay.type }}</p>
-          <p>Attack: {{ cardDisplay.attack }}</p>
-          <p>Health: {{ cardDisplay.health }}</p>
-          <p>Cost: {{ cardDisplay.cost }}</p>
+          <div *ngIf="!(cardDisplay.cost === undefined)" style="min-width: 100%;">
+            <img src="../../assets/legendary_mana_crystal.png" alt="Mana Cost">
+            <h6><b>Mana Cost: </b>{{ cardDisplay.cost }}</h6>
+            <p><ngb-progressbar type="info" [value]="cardDisplay.cost" [max]="12" [height]="'5px'"></ngb-progressbar></p>
+          </div>
+          <div *ngIf="!(cardDisplay.attack === undefined)" style="min-width: 100%;">
+            <img src="../../assets/card_attack.png" alt="Attack">
+            <h6><b>Attack: </b>{{ cardDisplay.attack }}</h6>
+            <p><ngb-progressbar type="warning" [value]="cardDisplay.attack" [max]="12" [height]="'5px'"></ngb-progressbar></p>
+          </div>
+          <div *ngIf="!(cardDisplay.health === undefined)" style="min-width: 100%;">
+            <img src="../../assets/card_health.png" alt="Health">
+            <h6><b>Health: </b>{{ cardDisplay.health }}</h6>
+            <p><ngb-progressbar type="danger" [value]="cardDisplay.health" [max]="14" [height]="'5px'"></ngb-progressbar></p>
+          </div>
         </div>
       </div>
     </div>

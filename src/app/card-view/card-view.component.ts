@@ -82,6 +82,7 @@ export class CardViewComponent implements OnInit, OnChanges {
   }
   // on card clicked
   onShowCardDetails(selectedCard: any) {
+    console.log(selectedCard);
     if (this.previousCard === selectedCard) {
       this.changeDetailState.emit('closed');
       this.previousCard = '';

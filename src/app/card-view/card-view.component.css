@@ -73,7 +73,8 @@ input:checked + .slider:before {
   width: 100%;
 }
 .filter-row {
-  padding: 1% 0;
+  padding: 0;
+  margin-bottom: 2%;
 }
 .open {
   align-items: flex-end;
@@ -94,32 +95,60 @@ input:checked + .slider:before {
   top: 12%;
   width: 80%;
   height: 83%;
-  background-color: black;
+  background-color: transparent;
   content: " ";
   border-radius: 10%;
   z-index: 1;
   transition: all 200ms ease-in-out;
 }
-.card:hover {
-  transform: translateY(-10px) scale(1.1);
+.card-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: all 200ms ease-in-out;
 }
-.card:hover:after {
+.card-hero::after {
+  position: absolute;
+  top: 14%;
+  left: 16%;
+  width: 63%;
+  height: 50%;
+  background-color: transparent;
+  content: " ";
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+.card:hover,
+.card-hero:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+.card:hover:after,
+.card-hero:hover:after {
   box-shadow: 0px 0px 25px 10px rgb(225, 240, 181),
               0px 0px 25px 15px rgb(114, 247, 36);
 }
+
 .card-image {
   width: 100%;
   z-index: 2;
 }
 /*pagination*/
-.pagination {
-  margin: 3% 0;
+.pagination-container {
+  margin: 2% 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.pagination > div {
+.pagination-container > div {
   padding: 15px 15px 0;
+}
+.page-link {
+  color: black;
+}
+ngb-pagination .pagination .page-item.active a {
+  background-color: black;
+  border-color: black;
 }
 /* Larger desktop */
 @media (min-width: 1200px) {
@@ -139,9 +168,13 @@ input:checked + .slider:before {
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-
+  .row {
+    margin: 0;
+  }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-
+  .row {
+    margin: 0;
+  }
 }

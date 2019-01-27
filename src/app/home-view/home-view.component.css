@@ -31,11 +31,30 @@ app-card-view {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  color: #EBD6AB;
+}
+.button-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .menu-logo h3 {
   margin: 0;
+}
+.github-details:hover {
   color: white;
+  cursor: pointer;
+}
+.github-details a {
+  color: inherit;
+}
+.github-details i {
+  font-size: 1.5rem;
+}
+.github-details p {
+  margin: 0 10px;
+  display: inline-block;
 }
 /*Slide Menus*/
 .side-menu-filter {
@@ -88,7 +107,7 @@ app-card-view {
   position: absolute;
   left: 13px;
   right: 13px;
-  border-top: 4px solid white;
+  border-top: 4px solid #EBD6AB;
   transition: .2s;
   border-radius: 7px;
 }
@@ -123,10 +142,12 @@ app-card-view {
 }
 /*footer styles*/
 .footer {
-  background: black;
+  background: url('../../assets/wood_middle_repeat.png');
+  background-position: center;
+  background-repeat: repeat-x;
   width: 100%;
   justify-self: flex-end;
-  color: white;
+  color: #EBD6AB;
   display: flex;
   justify-content: flex-start;
 }
@@ -138,13 +159,12 @@ app-card-view {
   font-weight: normal;
 }
 .footer a {
-  color: white;
+  color: inherit;
   text-decoration: none;
-  padding: 1px 2px;
+  padding: 0;
 }
 .footer a:hover {
-  color: black;
-  background-color: white;
+  color: white;
 }
 /* Larger desktop */
 @media (min-width: 1200px) {
@@ -223,9 +243,13 @@ app-card-view {
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-
+  .main-header {
+    padding: 0;
+  }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-
+  .main-header {
+    padding: 0;
+  }
 }

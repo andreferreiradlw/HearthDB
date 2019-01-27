@@ -5,14 +5,21 @@
 <!--Header Bar-->
 <header class="main-header">
   <!--Menu Button-->
-  <div
-    (click)="toggleMenu()"
-    [ngClass]="{ 'active': (menuState === 'open'), 'disabled': (detailState === 'open') && (menuState === 'open')}"
-    class="bt-menu">
-    <span></span>
+  <div class="button-logo">
+    <div
+      (click)="toggleMenu()"
+      [ngClass]="{ 'active': (menuState === 'open'), 'disabled': (detailState === 'open') && (menuState === 'open')}"
+      class="bt-menu">
+      <span></span>
+    </div>
+    <div class="menu-logo">
+      <h3><b>HearthDB</b></h3>
+    </div>
   </div>
-  <div class="menu-logo">
-    <h3><b>HearthDB</b></h3>
+  <div class="github-details">
+    <a href="https://github.com/andreferreiradlw/HearthDB">
+      <p>View on GitHub</p><i class="fab fa-github fa-lg"></i>
+    </a>
   </div>
 </header>
 <!--Card List Component-->

@@ -35,6 +35,11 @@ export class Card {
     return cardRarity.charAt(0).toUpperCase() + cardRarity.slice(1);
   }
 
+  formattedType() {
+    const cardType = this.type.toLowerCase();
+    return cardType.charAt(0).toUpperCase() + cardType.slice(1);
+  }
+
   getClassIcon() {
     const path = '../../assets/class_icons/' + this.cardClass.toLowerCase() + '.png';
     return path;

@@ -19,6 +19,7 @@ export class DetailMenuComponent implements OnInit, OnChanges {
     // detect filter changes
     if ( changes['cardSelected'] && changes['cardSelected'].previousValue !== changes['cardSelected'].currentValue ) {
       // if changes @Input() cardSelected
+      this.cardDisplay = '';
       this.cardDisplay = changes['cardSelected'].currentValue;
     }
   }
