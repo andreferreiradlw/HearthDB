@@ -11,11 +11,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  animation: fade 300ms 2s ease-out 1 normal forwards;
+  animation: fade 300ms 2.2s ease-out 1 normal forwards;
 }
 .hs-logo {
   animation: spin 1.5s 500ms ease-out 1 normal forwards,
-              zoomout 300ms 2s ease-out 1 normal forwards;
+              zoomout 500ms 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) 1 normal forwards;
 }
 /*Card List Child element with footer*/
 .card-container {
@@ -60,6 +60,9 @@ app-card-view {
 }
 .menu-logo h3 {
   margin: 0;
+}
+.github-details {
+  margin-right: 15px;
 }
 .github-details:hover {
   color: white;
@@ -184,6 +187,14 @@ app-card-view {
 }
 .footer a:hover {
   color: white;
+}
+/deep/ .page-link {
+  color: black !important;
+}
+/deep/ .page-item.active .page-link {
+  background-color: black !important;
+  border-color: black !important;
+  color: white !important;
 }
 /* Larger desktop */
 @media (min-width: 1200px) {

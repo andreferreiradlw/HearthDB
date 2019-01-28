@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 import { OrderByPipePipe } from '../orderByPipe.pipe';
+import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-card-view',
@@ -38,7 +39,11 @@ export class CardViewComponent implements OnInit, OnChanges {
   formatSwitch = true; // wild = true / strandard = false
   sortingSwitch = false; // Ascending = false / Descending = true
 
-  constructor(private orderFilter: OrderByPipePipe) { }
+  constructor(private orderFilter: OrderByPipePipe, config: NgbPopoverConfig) {
+  // customize default values of popovers used by this component tree
+  config.placement = 'right';
+  // config.triggers = 'hover';
+  }
 
   ngOnInit() { }
 

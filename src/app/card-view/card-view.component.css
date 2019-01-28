@@ -128,10 +128,39 @@ input:checked + .slider:before {
   box-shadow: 0px 0px 25px 10px rgb(225, 240, 181),
               0px 0px 25px 15px rgb(114, 247, 36);
 }
-
 .card-image {
   width: 100%;
   z-index: 2;
+}
+.card-row:hover {
+  cursor: pointer;
+}
+/*Card Tooltip in table*/
+.hasTooltip {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+.hasTooltip #image,
+.hasTooltip #anchor {
+  display: none;
+  background: transparent;
+  padding: 0;
+}
+.hasTooltip span img {
+  height: auto;
+  width: 160px;
+  margin: 0;
+  padding: 0;
+}
+
+.hasTooltip:hover #image {
+  display: block;
+  position: absolute;
+  bottom: -50%;
+  transform: translateY(50%) translateX(120%);
+  border: none;
+  z-index: 500;
 }
 /*pagination*/
 .pagination-container {
@@ -171,10 +200,16 @@ ngb-pagination .pagination .page-item.active a {
   .row {
     margin: 0;
   }
+  .hasTooltip:hover #image {
+    display: none;
+  }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .row {
     margin: 0;
+  }
+  .hasTooltip:hover #image {
+    display: none;
   }
 }
