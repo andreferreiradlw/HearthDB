@@ -6,12 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchFilterPipePipe implements PipeTransform {
 
   transform(items: any,
+    formatSearch: boolean,
     nameSearch: string,
     classSearch: string,
     typeSearch: string,
     setSearch: string,
     raritySearch: string,
-    manaCostSearch: string): any {
+    manaCostSearch: string) {
+      console.log(formatSearch);
     if (items && items.length) {
       return items.filter(item => {
         if (setSearch && item.set.toLowerCase().indexOf(setSearch.toLowerCase()) === -1) {
@@ -39,6 +41,13 @@ export class SearchFilterPipePipe implements PipeTransform {
         }
         if (raritySearch && item.rarity.toLowerCase().indexOf(raritySearch.toLowerCase()) === -1) {
           return false;
+        }
+        if (formatSearch === false) {
+          const formatSets = ['CORE', 'EXPERT1', 'UNGORO', 'ICECROWN', 'LOOTAPALOOZA', 'GILNEAS', 'BOOMSDAY', 'TROLL'];
+          // console.log(formatSets.indexOf(item.set));
+          if (formatSets.indexOf(item.set) === -1) {
+            return false;
+          }
         }
         return true;
       });

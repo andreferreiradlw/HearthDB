@@ -10,6 +10,7 @@ import { SearchFilterPipePipe } from '../SearchFilterPipe.pipe';
 export class FilterMenuComponent implements OnInit, OnChanges {
   // cards from api input
   @Input() collectibleCards: any;
+  @Input() formatState: boolean;
   // send out filtered cards
   @Output() filteredCards = new EventEmitter();
   // filter options
@@ -81,6 +82,7 @@ export class FilterMenuComponent implements OnInit, OnChanges {
   selectedManaCost = '';
   selectedSet = '';
   selectedRarity = '';
+  selectedFormat = true;
   // initial cards
   initialCards: any;
 
@@ -96,6 +98,24 @@ export class FilterMenuComponent implements OnInit, OnChanges {
       // run initial load with empty filters
       this.filteredCards.emit(this.initialCards);
       // this.onFilterChange('');
+    }
+    if ( changes['formatState'] && changes['formatState'].previousValue !== changes['formatState'].currentValue ) {
+      // if changes @Input() formatState
+      this.selectedFormat = changes['formatState'].currentValue;
+      // filter format using pipe
+    const emitFilteredCards = this.searchFilter
+      .transform(
+        this.initialCards,
+        this.selectedFormat,
+        this.nameSearch,
+        this.selectedClass,
+        this.selectedType,
+        this.selectedSet,
+        this.selectedRarity,
+        this.selectedManaCost
+      );
+    // card array to be emitted
+    this.filteredCards.emit(emitFilteredCards);
     }
   }
   // filter changes
@@ -118,6 +138,7 @@ export class FilterMenuComponent implements OnInit, OnChanges {
     const emitFilteredCards = this.searchFilter
       .transform(
         this.initialCards,
+        this.selectedFormat,
         this.nameSearch,
         this.selectedClass,
         this.selectedType,

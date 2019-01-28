@@ -4,8 +4,6 @@ import { Card } from '../cards.model';
 import { Subscription } from 'rxjs';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
-
-
 @Component({
   selector: 'app-home-view',
   templateUrl: './home-view.component.html',
@@ -31,6 +29,9 @@ export class HomeViewComponent implements OnInit {
   // menu states
   menuState = 'closed';
   detailState = 'closed';
+  // view state
+  viewState = true; // gallery = true / table = false
+  formatState = true; // wild = true / strandard = false
 
   constructor(private cardService: CardCollectionService) { }
 
@@ -54,8 +55,8 @@ export class HomeViewComponent implements OnInit {
     }
   }
   closeMenu(event: any) {
-    const nodeValue = event.target.id;
-    if (nodeValue === 'card-container' || nodeValue === '') {
+    // console.log(event.target.id);
+    if (event.target.id === 'card-container' || event.target.id === '' && this.viewState === true) {
       // close the details menu first
       if (this.detailState === 'open') {
         this.detailState = 'closed';
@@ -79,5 +80,11 @@ export class HomeViewComponent implements OnInit {
   }
   onChangeDetailState(newDetailState: any) {
     this.detailState = newDetailState;
+  }
+  onViewChange(cardView: boolean) {
+    this.viewState = cardView;
+  }
+  onFormatChange(cardFormat: boolean) {
+    this.formatState = cardFormat;
   }
 }

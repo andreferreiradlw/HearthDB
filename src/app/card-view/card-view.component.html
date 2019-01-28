@@ -4,7 +4,7 @@
       <!--Switch View-->
       <i class="fa fa-table fa-icons" aria-hidden="true"></i>
       <label id="viewSwitch" class="switch">
-        <input id="viewSwitchInput" type="checkbox" [checked]="viewSwitch" (change)="viewSwitch = !viewSwitch">
+        <input id="viewSwitchInput" type="checkbox" [checked]="viewSwitch" (change)="onViewChange()">
         <span id="viewSwitchSlider" class="slider round"></span>
       </label>
       <i class="fa fa-image fa-icons" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
       <!--Switch Format-->
       <img src="../../assets/Mode_Standard.png" alt="Standard" width="40px" height="40px" style="margin: 0 8px;">
       <label id="formatSwitch" class="switch">
-        <input id="formatSwitchInput" type="checkbox" [checked]="formatSwitch">
+        <input id="formatSwitchInput" type="checkbox" [checked]="formatSwitch" (change)="onFormatChange()">
         <span id="formatSwitchSlider" class="slider round"></span>
       </label>
       <img src="../../assets/Mode_Wild.png" alt="Wild" width="40px" height="40px" style="margin: 0 8px;">
@@ -37,10 +37,10 @@
       <i class="fas fa-sort-numeric-up fa-icons" aria-hidden="true" *ngIf="orderByProperty === 'cost'"></i>
       <i class="fas fa-sort-alpha-up fa-icons" aria-hidden="true" *ngIf="orderByProperty !== 'cost'"></i>
     </div>
-    <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
+    <!--Card Quantity Switch-->
+    <div class="switch-container" *ngIf="filteredCardsLength > 18" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-6 col-xl-auto' : 'col-6 col-sm-6 col-md-auto'">
       <i class="fas fa-hashtag fa-icons" aria-hidden="true"></i>
       <select
-        *ngIf="filteredCardsLength > 18"
         id="itemsPerPAgeFilter"
         class="form-control"
         (change)="onItemsPerPageChange()"
@@ -74,14 +74,16 @@
             <th scope="col">Card Name</th>
             <th scope="col">Class</th>
             <th scope="col">Type</th>
+            <th scope="col">Set</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let card of slicedCards" (click)="onShowCardDetails(card)">
-            <th scope="row">{{card.cost}}</th>
-            <td>{{card.name}}</td>
-            <td>{{card.formattedClass()}}</td>
-            <td>{{card.type}}</td>
+            <th scope="row">{{ card.cost }}</th>
+            <td>{{ card.name }}</td>
+            <td>{{ card.formattedClass() }}</td>
+            <td>{{ card.formattedType() }}</td>
+            <td>{{ card.getFormattedSet() }}</td>
           </tr>
         </tbody>
       </table>

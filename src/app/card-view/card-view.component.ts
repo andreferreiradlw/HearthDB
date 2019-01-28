@@ -15,6 +15,8 @@ export class CardViewComponent implements OnInit, OnChanges {
   // output event emitter when card clicked
   @Output() cardSelected = new EventEmitter();
   @Output() changeDetailState = new EventEmitter();
+  @Output() changeView = new EventEmitter();
+  @Output() changeFormat = new EventEmitter();
   // default pagination strings
   page = 1;
   itemsPerPage = 18;
@@ -64,7 +66,17 @@ export class CardViewComponent implements OnInit, OnChanges {
     // set total pages
     this.totalPages = Math.ceil(this.filteredCards.length / this.itemsPerPage);
   }
-
+  // view switch change
+  onViewChange() {
+    this.viewSwitch = !this.viewSwitch;
+    this.changeView.emit(this.viewSwitch);
+  }
+  // format switch chnage
+  onFormatChange() {
+    this.formatSwitch = !this.formatSwitch;
+    this.changeFormat.emit(this.formatSwitch);
+  }
+  // items per page changed
   onItemsPerPageChange() {
     // this.itemsPerPage = numberPerPage.target.value;
     this.onPageChange(1);

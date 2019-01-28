@@ -1,5 +1,15 @@
+<!--Loading-->
+<div class="loading">
+  <img class="hs-logo" src="https://magbucket.neocities.org/hearthstoneicon4.png" alt="" width="220" height="220">
+  <h1><b>Loading...</b></h1>
+</div>
 <!--Side Menu with Slide-->
-<app-filter-menu [@slideInOut]="menuState" class="side-menu-filter" [collectibleCards]="cardCollection" (filteredCards)="onFilteredCards($event)"></app-filter-menu>
+<app-filter-menu
+  [@slideInOut]="menuState"
+  class="side-menu-filter"
+  [collectibleCards]="cardCollection"
+  [formatState]="formatState"
+  (filteredCards)="onFilteredCards($event)"></app-filter-menu>
 <!--Card Detail Menu with Slide-->
 <app-detail-menu [@slideInOut]="detailState" class="side-menu-detail" [cardSelected]="cardSelected" (detailsClosed)="onDetailsClosed($event)"></app-detail-menu>
 <!--Header Bar-->
@@ -17,19 +27,21 @@
     </div>
   </div>
   <div class="github-details">
-    <a href="https://github.com/andreferreiradlw/HearthDB">
+    <a href="https://github.com/andreferreiradlw/HearthDB" target="_blank">
       <p>View on GitHub</p><i class="fab fa-github fa-lg"></i>
     </a>
   </div>
 </header>
 <!--Card List Component-->
-<div class="card-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
+<div class="card-container" id="card-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'card-container-open' : ''" (click)="closeMenu($event)">
   <app-card-view
     [filteredCards]="filteredCards"
     [menuState]="menuState"
     [detailState]="detailState"
     (cardSelected)="onCardSelected($event)"
-    (changeDetailState)="onChangeDetailState($event)"></app-card-view>
+    (changeDetailState)="onChangeDetailState($event)"
+    (changeView)="onViewChange($event)"
+    (changeFormat)="onFormatChange($event)"></app-card-view>
   <div class="footer" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
     <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
       Built by <a href="http://itsjustandre.com/">Andre</a>. Powered by <a href="https://hearthstonejson.com/">HearthstoneJSON</a>.

@@ -14,13 +14,13 @@
   padding: 4px 8px;
   margin-top: 61px;
   margin-right: 0.5px;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 .close-button:hover {
   cursor: pointer;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 
 }
 .close-button p,

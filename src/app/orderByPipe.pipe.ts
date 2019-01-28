@@ -8,7 +8,7 @@ export class OrderByPipePipe implements PipeTransform {
   transform(values: any[], key?: string, reverse?: boolean) {
     // logs
     // console.log(values);
-    console.log(key + '' + reverse);
+    // console.log(key + '' + reverse);
     // array
     let sortedArray: any;
     let sortedNumbersArray: any[];
@@ -128,11 +128,7 @@ export class OrderByPipePipe implements PipeTransform {
         return;
       }
       object = parseInt(object[k].toString(), 10);
-      console.log(isNaN(object));
-      // object = object[k];
     }
     return object;
-    // console.log(object[key]);
-    // return parseInt(object[key].toString(), 10);
   }
 }
