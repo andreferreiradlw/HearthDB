@@ -163,6 +163,7 @@ export class FilterMenuComponent implements OnInit, OnChanges {
       const emitFilteredCards = this.searchFilter
         .transform(
           this.initialCards,
+          this.selectedFormat,
           this.nameSearch,
           this.selectedClass,
           this.selectedType,

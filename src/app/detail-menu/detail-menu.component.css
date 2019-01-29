@@ -43,13 +43,13 @@
   padding: 0;
 }
 .card-class h5,
-.card-rarity h6 {
+.card-rarity h5 {
   margin: 0 10px;
   vertical-align: middle;
   display: inline-block;
 }
 .card-rarity {
-  padding: 5px 8px;
+  padding: 7.5px 8px;
   border-radius: 5px;
   border: 1px solid white;
   margin-bottom: 10px;

@@ -74,7 +74,7 @@ input:checked + .slider:before {
 }
 .filter-row {
   padding: 0;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 .open {
   align-items: flex-end;
@@ -158,7 +158,7 @@ input:checked + .slider:before {
   display: block;
   position: absolute;
   bottom: -50%;
-  transform: translateY(50%) translateX(120%);
+  transform: translateY(50%) translateX(100%);
   border: none;
   z-index: 500;
 }
