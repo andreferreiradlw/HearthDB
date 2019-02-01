@@ -12,7 +12,7 @@ export class Card {
   elite: boolean;
   faction: string;
   health: string;
-  mechanics: [];
+  mechanics: string[];
   rarity: string;
   set: string;
   type: string;

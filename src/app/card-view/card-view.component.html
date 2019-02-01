@@ -1,6 +1,13 @@
 <div id="card-container" class="container">
   <div class="row filter-row" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'row justify-content-center' : 'justify-content-start'">
     <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-12 col-sm-6 col-md-6 col-xl-auto' : 'col-12 col-sm-6 col-md-auto'">
+      <button
+        id="openFilters"
+        type="button"
+        class="btn btn-dark"
+        (click)="onOpenFilters()">Filter Cards</button>
+    </div>
+    <div class="switch-container" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'col-12 col-sm-6 col-md-6 col-xl-auto' : 'col-12 col-sm-6 col-md-auto'">
       <!--Tooltip-->
       <ng-template #tipView>Change View</ng-template>
       <!--Switch View-->

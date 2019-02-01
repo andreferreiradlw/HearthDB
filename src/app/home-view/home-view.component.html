@@ -11,7 +11,11 @@
   [formatState]="formatState"
   (filteredCards)="onFilteredCards($event)"></app-filter-menu>
 <!--Card Detail Menu with Slide-->
-<app-detail-menu [@slideInOut]="detailState" class="side-menu-detail" [cardSelected]="cardSelected" (detailsClosed)="onDetailsClosed($event)"></app-detail-menu>
+<app-detail-menu
+  [@slideInOut]="detailState"
+  class="side-menu-detail"
+  [cardSelected]="cardSelected"
+  (detailsClosed)="onDetailsClosed($event)"></app-detail-menu>
 <!--Header Bar-->
 <header class="main-header">
   <!--Menu Button-->
@@ -41,7 +45,8 @@
     (cardSelected)="onCardSelected($event)"
     (changeDetailState)="onChangeDetailState($event)"
     (changeView)="onViewChange($event)"
-    (changeFormat)="onFormatChange($event)"></app-card-view>
+    (changeFormat)="onFormatChange($event)"
+    (openFilterMenu)="toggleMenu()"></app-card-view>
   <div class="footer" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
     <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
       Built by <a href="http://itsjustandre.com/">Andre</a>. Powered by <a href="https://hearthstonejson.com/">HearthSim</a>.

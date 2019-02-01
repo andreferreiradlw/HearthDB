@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Card } from './cards.model';
 
@@ -36,6 +36,7 @@ export class CardCollectionService {
           card.rarity = entry.rarity;
           card.set = entry.set;
           card.type = entry.type;
+          card.mechanics = entry.mechanics;
           finalCards.push(card);
         });
         // console.log(finalCards);
