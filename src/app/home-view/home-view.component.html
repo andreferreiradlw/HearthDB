@@ -1,6 +1,8 @@
 <!--Loading-->
-<div class="loading">
-  <img class="hs-logo" src="https://magbucket.neocities.org/hearthstoneicon4.png" alt="" width="220" height="220">
+<div class="loading" [ngClass]="isLoading ? 'background-fade' : ''">
+  <img
+    [ngClass]="isLoading ? 'hs-logo' : ''"
+    src="https://magbucket.neocities.org/hearthstoneicon4.png" alt="" width="220" height="220">
   <h1><b>Loading...</b></h1>
 </div>
 <!--Side Menu with Slide-->

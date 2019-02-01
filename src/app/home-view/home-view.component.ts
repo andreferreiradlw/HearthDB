@@ -21,6 +21,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class HomeViewComponent implements OnInit {
+  isLoading = false;
   // card collection
   cardCollection: Card[] = [];
   filteredCards: any;
@@ -37,6 +38,8 @@ export class HomeViewComponent implements OnInit {
 
   ngOnInit() {
     this.cardService.getData();
+    // set loading
+    this.isLoading = true;
     // will get initial array of posts from server
     this.cardsSub = this.cardService.getCardUpdateListener()
       .subscribe( cardData => {
