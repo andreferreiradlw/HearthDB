@@ -41,9 +41,9 @@ export class CardViewComponent implements OnInit, OnChanges {
   sortingSwitch = false; // Ascending = false / Descending = true
 
   constructor(private orderFilter: OrderByPipePipe, config: NgbPopoverConfig) {
-  // customize default values of popovers used by this component tree
-  config.placement = 'right';
-  // config.triggers = 'hover';
+    // customize default values of popovers used by this component tree
+    config.placement = 'right';
+    // config.triggers = 'hover';
   }
 
   ngOnInit() { }
@@ -104,7 +104,6 @@ export class CardViewComponent implements OnInit, OnChanges {
   }
   // on card clicked
   onShowCardDetails(selectedCard: any) {
-    console.log(selectedCard);
     if (this.previousCard === selectedCard) {
       this.changeDetailState.emit('closed');
       this.previousCard = '';
