@@ -1,8 +1,8 @@
 <!--Loading-->
-<div class="loading" [ngClass]="isLoading ? 'background-fade' : ''">
+<div class="loading" [ngClass]="isLoaded ? 'background-fade' : ''">
   <img
-    [ngClass]="isLoading ? 'hs-logo' : ''"
-    src="https://magbucket.neocities.org/hearthstoneicon4.png" alt="" width="220" height="220">
+    [ngClass]="[isLoading ? 'hs-logo' : '', isLoaded ? 'logo-fade' : '']"
+    src="../../assets/hearthstone_icon.png" alt="HearthDB" width="220" height="220">
   <h1><b>Loading...</b></h1>
 </div>
 <!--Side Menu with Slide-->
@@ -51,7 +51,7 @@
     (openFilterMenu)="toggleMenu()"></app-card-view>
   <div class="footer" [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
     <p [ngClass]="(menuState === 'open') || (detailState === 'open') ? 'footer-open' : ''">
-      Built by <a href="http://itsjustandre.com/">Andre</a>. Powered by <a href="https://hearthstonejson.com/">HearthSim</a>.
+      Built by <a href="https://itsjustandre.com/">Andre</a>. Powered by <a href="https://hearthstonejson.com/">HearthSim</a>.
     </p>
   </div>
 </div>

@@ -22,6 +22,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class HomeViewComponent implements OnInit {
   isLoading = false;
+  isLoaded = false;
   // card collection
   cardCollection: Card[] = [];
   filteredCards: any;
@@ -44,6 +45,9 @@ export class HomeViewComponent implements OnInit {
     this.cardsSub = this.cardService.getCardUpdateListener()
       .subscribe( cardData => {
         this.cardCollection = cardData;
+        // trigger fade out
+        this.isLoading = false;
+        this.isLoaded = true;
       });
   }
   // menu states

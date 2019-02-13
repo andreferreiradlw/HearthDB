@@ -13,11 +13,13 @@
   left: 0;
 }
 .background-fade {
-  animation: fade 300ms 2.3s ease-out 1 normal forwards;
+  animation: fade 300ms 0.3s ease-out 1 normal forwards;
+}
+.logo-fade {
+  animation: zoomout 200ms 0.2s cubic-bezier(0.6, -0.55, 0.735, 0.045) 1 normal forwards;
 }
 .loading .hs-logo {
-  animation: spin 1.5s 500ms ease-out 1 normal forwards,
-              zoomout 200ms 2s cubic-bezier(0.6, -0.55, 0.735, 0.045) 1 normal forwards;
+  animation: spin 1.5s 200ms ease-out infinite;
 }
 /*Card List Child element with footer*/
 .card-container {
