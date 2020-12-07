@@ -3,24 +3,39 @@
   <p>Close Details</p>
 </div>
 <div class="container" *ngIf="cardDisplay">
-  <div class="row justify-content-start" style="min-width:100%;">
+  <div class="row justify-content-start" style="min-width: 100%">
     <div class="col-12 card-title">
       <div class="row justify-content-start">
         <div class="col-auto">
-          <div class="card-class" [ngStyle]="setClassStyles(cardDisplay.cardClass)">
-            <img src="{{ cardDisplay.getClassIcon() }}" alt="{{ cardDisplay.formattedClass() }}">
-            <h5><b>{{ cardDisplay.formattedClass() }}</b></h5>
+          <div
+            class="card-class"
+            [ngStyle]="setClassStyles(cardDisplay.cardClass)"
+          >
+            <img
+              src="{{ cardDisplay.getClassIcon() }}"
+              alt="{{ cardDisplay.formattedClass() }}"
+            />
+            <h5>
+              <b>{{ cardDisplay.formattedClass() }}</b>
+            </h5>
           </div>
         </div>
         <div class="col-auto">
           <div class="card-rarity" *ngIf="cardDisplay.rarity">
-            <h5><b>{{ cardDisplay.formattedRarity() }} {{ cardDisplay.formattedType() }}</b></h5>
+            <h5>
+              <b
+                >{{ cardDisplay.formattedRarity() }}
+                {{ cardDisplay.formattedType() }}</b
+              >
+            </h5>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <h1><b>{{ cardDisplay.name }}</b></h1>
+          <h1>
+            <b>{{ cardDisplay.name }}</b>
+          </h1>
         </div>
       </div>
       <div class="row">
@@ -30,21 +45,18 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center" style="min-width:100%;">
+  <div class="row justify-content-center" style="min-width: 100%">
     <div class="col-12">
       <div class="card-art-container">
-        <img class="card-art common-art" src="{{ cardDisplay.image() }}" alt="Card Art">
-        <!--Rastakhan's Rumble Golden Cards Not yet Available in API-->
         <img
-          class="card-art"
-          src="{{ cardDisplay.goldImage() }}"
-          alt="Gold Card Art"
-          *ngIf="!((cardDisplay.set === 'TROLL') || (cardDisplay.set === 'HERO_SKINS'))"
-          [ngClass]="(cardDisplay.type === 'HERO') ? 'gold_hero' : ''">
+          class="card-art common-art"
+          src="{{ cardDisplay.image() }}"
+          alt="Card Art"
+        />
       </div>
     </div>
   </div>
-  <div class="row justify-content-start" style="min-width:100%;">
+  <div class="row justify-content-start" style="min-width: 100%">
     <div class="col-12">
       <div class="row justify-content-center">
         <div class="col-auto card-text-container" *ngIf="cardDisplay.text">
@@ -53,24 +65,61 @@
       </div>
       <div class="row justify-content-start">
         <div class="col-6 card-details-container">
-          <h5 *ngIf="cardDisplay.artist"><b>Artist:</b><br>{{ cardDisplay.artist }}</h5>
-          <h5 *ngIf="cardDisplay.set"><b>Set:</b><br>{{ cardDisplay.getFormattedSet() }}</h5>
+          <h5 *ngIf="cardDisplay.artist">
+            <b>Artist:</b><br />{{ cardDisplay.artist }}
+          </h5>
+          <h5 *ngIf="cardDisplay.set">
+            <b>Set:</b><br />{{ cardDisplay.getFormattedSet() }}
+          </h5>
         </div>
         <div class="col-6 card-details-container">
-          <div *ngIf="!(cardDisplay.cost === undefined)" style="min-width: 100%;">
-            <img src="../../assets/legendary_mana_crystal.png" alt="Mana Cost">
+          <div
+            *ngIf="!(cardDisplay.cost === undefined)"
+            style="min-width: 100%"
+          >
+            <img
+              src="../../assets/legendary_mana_crystal.png"
+              alt="Mana Cost"
+            />
             <h6><b>Mana Cost: </b>{{ cardDisplay.cost }}</h6>
-            <p><ngb-progressbar type="info" [value]="cardDisplay.cost" [max]="12" [height]="'5px'"></ngb-progressbar></p>
+            <p>
+              <ngb-progressbar
+                type="info"
+                [value]="cardDisplay.cost"
+                [max]="12"
+                [height]="'5px'"
+              ></ngb-progressbar>
+            </p>
           </div>
-          <div *ngIf="!(cardDisplay.attack === undefined)" style="min-width: 100%;">
-            <img src="../../assets/card_attack.png" alt="Attack">
+          <div
+            *ngIf="!(cardDisplay.attack === undefined)"
+            style="min-width: 100%"
+          >
+            <img src="../../assets/card_attack.png" alt="Attack" />
             <h6><b>Attack: </b>{{ cardDisplay.attack }}</h6>
-            <p><ngb-progressbar type="warning" [value]="cardDisplay.attack" [max]="12" [height]="'5px'"></ngb-progressbar></p>
+            <p>
+              <ngb-progressbar
+                type="warning"
+                [value]="cardDisplay.attack"
+                [max]="12"
+                [height]="'5px'"
+              ></ngb-progressbar>
+            </p>
           </div>
-          <div *ngIf="!(cardDisplay.health === undefined)" style="min-width: 100%;">
-            <img src="../../assets/card_health.png" alt="Health">
+          <div
+            *ngIf="!(cardDisplay.health === undefined)"
+            style="min-width: 100%"
+          >
+            <img src="../../assets/card_health.png" alt="Health" />
             <h6><b>Health: </b>{{ cardDisplay.health }}</h6>
-            <p><ngb-progressbar type="danger" [value]="cardDisplay.health" [max]="14" [height]="'5px'"></ngb-progressbar></p>
+            <p>
+              <ngb-progressbar
+                type="danger"
+                [value]="cardDisplay.health"
+                [max]="14"
+                [height]="'5px'"
+              ></ngb-progressbar>
+            </p>
           </div>
         </div>
       </div>
