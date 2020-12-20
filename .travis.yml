@@ -1,19 +1,17 @@
 language: node_js
 node_js: stable
+os: linux
 dist: trusty
-sudo: required
-branches:
-  only:
-    - master
 before_script:
   - npm install -g @angular/cli
 script:
   - ng build --prod
 deploy:
+  strategy: git
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/itsjustandre
+  token: $GITHUB_TOKEN
+  local_dir: dist/hearthdb
   fqdn: andreferreira.tech
   on:
     branch: master
