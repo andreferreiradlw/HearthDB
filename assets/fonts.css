@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Belwe';
+  src: url('BelweMediumBT.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Belwe';
+  src: url('BelweBoldBT.ttf') format('truetype');
+  font-weight: bold;
+}
