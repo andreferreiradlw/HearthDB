@@ -30,8 +30,8 @@
   right: 0;
   bottom: 0;
   background-color: rgb(102, 102, 102);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .slider:before {
   position: absolute;
@@ -41,8 +41,8 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .slider.round {
   border-radius: 34px;
@@ -56,7 +56,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -92,9 +92,9 @@ input:checked + .slider:before {
 }
 .card::after {
   position: absolute;
-  top: 12%;
-  width: 80%;
-  height: 83%;
+  top: 14%;
+  width: 75%;
+  height: 72%;
   background-color: transparent;
   content: " ";
   border-radius: 10%;
@@ -126,7 +126,7 @@ input:checked + .slider:before {
 .card:hover:after,
 .card-hero:hover:after {
   box-shadow: 0px 0px 25px 10px rgb(225, 240, 181),
-              0px 0px 25px 15px rgb(114, 247, 36);
+    0px 0px 25px 15px rgb(114, 247, 36);
 }
 .card-image {
   width: 100%;
@@ -193,7 +193,6 @@ ngb-pagination .pagination .page-item.active a {
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
